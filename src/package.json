@@ -1,0 +1,19 @@
+{
+	"name": "bemy",
+	"packageManager": "yarn@4.0.0-rc.48",
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite build --watch --emptyOutDir"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.14",
+		"petite-vue": "^0.4.1",
+		"postcss": "^8.4.27",
+		"sass": "^1.69.5",
+		"tailwindcss": "^3.3.3",
+		"vite": "^4.4.7"
+	},
+	"volta": {
+		"node": "18.17.0"
+	}
+}

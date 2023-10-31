@@ -1,0 +1,50 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="no-js no-svg ie lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 9]><html class="no-js no-svg ie ie9 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js no-svg scroll-smooth" {{ site.language_attributes }}> <!--<![endif]-->
+<head>
+{% block html_head_container %}
+    {% include 'partials/head.twig' %}
+    {% block head %}
+    {% endblock %}
+{% endblock %}
+</head>
+
+<body class="{{body_class}} flex flex-col" data-template="layout.twig">
+{{function('wp_body_open')}}
+{# {% include 'partials/ie.twig' %} #}
+
+<header>
+    {% block header %}
+        <div>
+            <h1 role="banner">
+                <a href="{{site.url}}" rel="home">{{site.name}}</a>
+            </h1>
+            <nav id="nav-main" role="navigation" v-scope="Menu()">
+                <div v-if="isOpen">open</div>
+                <div v-if="!isOpen">close</div>
+                <div @click="toggleMenu">toogle</div>
+                {{ include('partials/menu.twig', {'items': menu.get_items})}}
+            </nav>
+        </div>
+    {% endblock %}
+</header>
+
+<main id="content" role="main" class="flex-1">
+    {% if title %}<h1>{{title}}</h1>{% endif %}
+    {% block content %}
+        Sorry, no content
+    {% endblock %}
+</main>
+
+
+
+{% block footer %}
+    <footer id="footer" class="mt-auto">
+        {% include 'footer.twig' %}
+    </footer>
+    {{ function('wp_footer') }}
+{% endblock %}
+</body>
+
+</html>
