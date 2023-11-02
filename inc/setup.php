@@ -52,6 +52,18 @@ if ( ! function_exists( 'bemy_setup' ) ) {
 		add_filter('use_block_editor_for_post', '__return_false', 10);
 
 
+		/**
+		 * Add thumbnail support
+		 */
+		add_theme_support( 'post-thumbnails' );
+
+
+		/**
+		 *  Add theme textdomain
+		 */
+		load_theme_textdomain( 'bemy', get_template_directory() . '/languages' );
+
+
     }
 }
 

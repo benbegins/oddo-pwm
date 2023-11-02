@@ -1,0 +1,20 @@
+body {
+	@apply font-lato text-base text-black;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	&.admin-bar {
+		.site-header {
+			top: 32px;
+		}
+	}
+}
+
+.container {
+	max-width: calc(1240px + 3rem);
+}
+
+.container-xl {
+	max-width: calc(1440px + 3rem);
+	margin-inline: auto;
+}

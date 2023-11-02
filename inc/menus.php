@@ -1,9 +1,11 @@
 <?php
 
 function bemy_set_menus() {
-    // register_nav_menus( array(
-    //     'primary_private_menu' => 'Menu principal'
-    // ) );
+    register_nav_menus( array(
+        'menu-france' => 'Menu France',
+        'menu-germany' => 'Menu Germany',
+        'menu-switzerland' => 'Menu Switzerland',
+    ) );
     // see https://developer.wordpress.org/reference/functions/register_nav_menus/
 }
 

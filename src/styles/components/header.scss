@@ -1,0 +1,71 @@
+.site-header {
+	--color: #ffffff;
+
+	// Sticky header
+	&.is-scrolling {
+		--color: #272529;
+
+		@apply bg-white;
+		.site-header {
+			&__logo {
+				.logo-text {
+					fill: var(--color);
+				}
+			}
+			&__nav {
+				color: var(--color);
+
+				.btn-submenu {
+					@apply stroke-black;
+				}
+			}
+			&__espace-client {
+				border-color: var(--color);
+			}
+		}
+	}
+
+	&__nav {
+		& > ul {
+			& > li {
+				& > a,
+				button {
+					@apply block relative py-2.5;
+
+					@media screen and (min-width: 1024px) {
+						&::after {
+							content: "";
+							@apply absolute block w-full h-px bottom-0 left-0 origin-center scale-x-0 transition-transform duration-300;
+							background: var(--color);
+						}
+
+						&:hover::after {
+							@apply scale-x-100;
+						}
+					}
+				}
+			}
+		}
+
+		.btn-submenu {
+			@apply flex items-center gap-2 stroke-black lg:stroke-white;
+
+			svg {
+				@apply transition-transform duration-500;
+			}
+			&[aria-expanded="true"] {
+				svg {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+
+	&__submenu {
+		@apply overflow-hidden h-0 transition-all duration-500 lg:absolute lg:top-full lg:w-auto lg:bg-white lg:text-black;
+
+		a {
+			@apply block relative py-2.5 pl-6 lg:transition-colors lg:duration-200 lg:px-5 lg:py-3 lg:hover:bg-greige;
+		}
+	}
+}
