@@ -1,3 +1,7 @@
+*::selection {
+	@apply bg-black text-greige;
+}
+
 body {
 	@apply font-lato text-base text-black;
 	-webkit-font-smoothing: antialiased;

@@ -1,28 +1,10 @@
-<div v-scope="VersionSelection()">
-    <header v-scope="Menu()" @vue:mounted="scrollEvent($el)" class="site-header z-30 top-0 w-full fixed transition-colors duration-500" :class="{'is-open': menuOpen}">
-        <div class="hidden lg:block bg-greige relative z-20">
-            <div class="container-xl flex justify-end gap-6 py-1 px-6 text-xs">
-                <div><a href="" class="hover:text-rouge">{{ __('Contactez-nous', 'bemy') }}</a></div>
-                <div><a href="" class="hover:text-rouge">{{ __('Agences', 'bemy') }}</a></div>
-                {% set post_translations = function('pll_get_post_translations', post.id) %}
-                {% if post_translations %}
-                    <div>
-                        <button class="flex gap-2" @click="popinDisplayed = true">
-                            {% for lang, id in post_translations %}
-                                {% if id == post.id %}
-                                    <span class="text-rouge">{{lang|capitalize}}</span>
-                                {% else %}
-                                    <span class="opacity-40">{{lang|capitalize}}</span>
-                                {% endif %}
-                            {% endfor %}
-                        </button>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-        <div class="container-xl lg:flex lg:justify-between lg:items-center">
-            <div class="site-header__logo-burger  transition-colors duration-500 relative z-20 flex justify-between px-5 py-3 lg:px-6">
-                <a href="{{home}}" rel="home" class="site-header__logo" aria-label="ODDO BHF Private Wealth Management">
+<div @vue:mounted="initVersionSelection">
+    <div v-if="popinDisplayed" class="opacity-0 fixed inset-0 z-50 p-5 flex justify-center items-center" :class="{'opacity-100': popinDisplayed}">
+    
+        <div class="relative w-full max-w-5xl max-h-full z-10 overflow-y-auto md:grid md:grid-cols-2 md:items-stretch md:max-h-[600px] md:overflow-hidden">
+            <div class="bg-white px-5 py-10 w-full shrink-0 md:flex md:items-center md:justify-center">
+                <div class="w-full lg:w-2/3">
+    
                     <svg xmlns="http://www.w3.org/2000/svg" width="90.01" height="65.562" viewBox="0 0 90.01 65.562">
                         <g id="Groupe_3756" data-name="Groupe 3756" transform="translate(-80.001 -12)">
                             <g id="Groupe_637" data-name="Groupe 637" transform="translate(80.01 12)">
@@ -30,7 +12,7 @@
                                 <path id="Tracé_1113" data-name="Tracé 1113" d="M217.618,9.206V0H209.8a20.5,20.5,0,0,1,7.818,9.206" transform="translate(-161.274)" fill="#d52819"/>
                                 <path id="Tracé_1114" data-name="Tracé 1114" d="M163.8,18.8a17.123,17.123,0,0,0,2.961-4.58A18.14,18.14,0,0,0,154.275,0H145V6.754a11.456,11.456,0,0,1,3.978-.74,11.184,11.184,0,0,1,9.506,17.093,20.855,20.855,0,0,0,5.32-4.3" transform="translate(-111.462)" fill="#d52819"/>
                             </g>
-                            <g id="Groupe_3755" data-name="Groupe 3755" class="logo-text fill-white transition-colors duration-500">
+                            <g id="Groupe_3755" data-name="Groupe 3755" class="fill-black">
                                 <g id="Groupe_638" data-name="Groupe 638" transform="translate(80.01 12)">
                                     <path id="Tracé_1115" data-name="Tracé 1115" d="M9,150.274a3.372,3.372,0,0,1-3.562,3.7,3.48,3.48,0,0,1-3.562-3.7c0-2.359,1.365-3.84,3.585-3.84A3.5,3.5,0,0,1,9,150.274M5.459,144.7A5.328,5.328,0,0,0,0,150.274a5.181,5.181,0,0,0,5.435,5.482A5.529,5.529,0,1,0,5.459,144.7" transform="translate(0 -111.231)"/>
                                     <path id="Tracé_1116" data-name="Tracé 1116" d="M68.169,153.364a3.4,3.4,0,0,1-2.521.948H63.474v-6.985h2.174a3.267,3.267,0,0,1,3.446,3.4,3.583,3.583,0,0,1-.925,2.637M65.648,145.5H61.6v10.64h4.048a5.252,5.252,0,0,0,3.863-1.457,5.512,5.512,0,0,0,1.457-3.932,5.046,5.046,0,0,0-5.32-5.25" transform="translate(-47.352 -111.846)"/>
@@ -44,48 +26,67 @@
                             </g>
                         </g>
                     </svg>
-                </a>
-                <button @click="toggleMenu" class="btn-burger fill-white lg:hidden" :class="{'active': menuOpen}">
-                    <svg viewBox="0 0 100 100" width="24">
-                        <rect class="line top" x="0" y="15" width="100" height="8" rx="5" ry="5"></rect>
-                        <rect class="line mid" x="0" y="46" width="100" height="8" rx="5" ry="5"></rect>
-                        <rect class="line bottom" x="0" y="77" width="100" height="8" rx="5" ry="5"></rect>
-                    </svg>
-                </button>
+    
+                    <div class="mt-8 flex flex-col gap-8 stroke-black">
+                        <div>
+                            <p class="text-mint uppercase tracking-widest font-bold text-sm">{{ __('Pays', 'bemy') }}</p>
+                            <div class="relative">
+                                <button @click="toggleSelectVersion" class="border-b border-black w-full text-left py-2 flex justify-between items-center">
+    
+                                    <span v-if="versionSelected" v-text="versionSelectedLabel"></span>
+                                    <span v-else>{{ __('Sélectionnez un pays', 'bemy') }}</span>
+    
+                                    <div class="transition-transform duration-300" :class="{'rotate-180': countrySelectOpen}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="11.414" height="6.415" viewBox="0 0 11.414 6.415">
+                                            <g id="Groupe_641" data-name="Groupe 641" transform="translate(21431.752 23737.889)">
+                                                <line id="Ligne_23" data-name="Ligne 23" y2="7.072" transform="translate(-21421.045 -23737.182) rotate(45)" stroke-linecap="round" stroke-width="1"/>
+                                                <line id="Ligne_24" data-name="Ligne 24" y1="7.071" transform="translate(-21426.045 -23732.182) rotate(135)" stroke-linecap="round" stroke-width="1"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+    
+                                </button>
+                                <ul v-if="countrySelectOpen" class="absolute z-10 bg-white w-full shadow-xl">
+                                    <li @click="selectVersion($el)" data-version="france" class="p-3 cursor-pointer hover:bg-greige">{{ __('France', 'bemy') }}</li>
+                                    <li @click="selectVersion($el)" data-version="germany" class="p-3 cursor-pointer hover:bg-greige">{{ __('Allemagne', 'bemy') }}</li>
+                                    <li @click="selectVersion($el)" data-version="switzerland" class="p-3 cursor-pointer hover:bg-greige">{{ __('Suisse', 'bemy') }}</li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div v-show="versionSelected">
+                            <p class="text-mint uppercase tracking-widest font-bold text-sm">{{ __('Langue', 'bemy') }}</p>
+                            <div class="relative">
+                                <button @click="toggleSelectLanguage" class="border-b border-black w-full text-left py-2 flex justify-between items-center">
+    
+                                    <span v-if="languageSelected" v-text="languageSelectedLabel"></span>
+                                    <span v-else>{{ __('Sélectionnez une langue', 'bemy') }}</span>
+    
+                                    <div class="transition-transform duration-300" :class="{'rotate-180': languageSelectOpen}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="11.414" height="6.415" viewBox="0 0 11.414 6.415">
+                                            <g id="Groupe_641" data-name="Groupe 641" transform="translate(21431.752 23737.889)">
+                                                <line id="Ligne_23" data-name="Ligne 23" y2="7.072" transform="translate(-21421.045 -23737.182) rotate(45)" stroke-linecap="round" stroke-width="1"/>
+                                                <line id="Ligne_24" data-name="Ligne 24" y1="7.071" transform="translate(-21426.045 -23732.182) rotate(135)" stroke-linecap="round" stroke-width="1"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+    
+                                </button>
+                                <ul v-if="languageSelectOpen" class="absolute z-10 bg-white w-full shadow-xl">
+                                    <li v-for="language in languagesAvailable" :key="language" v-text="languages[language]" :data-language="language" @click="selectLanguage($el)" class="p-3 cursor-pointer hover:bg-greige"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
             </div>
-            <nav id="nav-main" role="navigation" class="site-header__nav absolute z-10 w-full left-0 top-full -translate-y-full transition-all duration-500 bg-white p-5 lg:opacity-100 lg:p-6 lg:static lg:translate-y-0 lg:bg-transparent lg:text-white lg:flex lg:justify-end lg:gap-20 lg:items-center lg:transition-colors lg:duration-500" :class="[menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0']">
-                {% if menu %}
-                    <ul class="lg:flex lg:gap-8">
-                        {% include "partials/menu.twig" with {items: menu.items} %}
     
-                        {# ODDO BHF Group #}
-                        <li>
-                            <button class="btn-submenu cursor-pointer" @click="toggleSubmenu($el)" aria-label="Open submenu {{item.title}}" aria-expanded="false" aria-controls="submenu-group">
-                                {{ __('ODDO BHF Group', 'bemy') }}
-                                <svg class="flex-none mt-1" xmlns="http://www.w3.org/2000/svg" width="11.414" height="6.415" viewBox="0 0 11.414 6.415">
-                                    <g id="Groupe_641" data-name="Groupe 641" transform="translate(21431.752 23737.889)">
-                                        <line id="Ligne_23" data-name="Ligne 23" y2="7.072" transform="translate(-21421.045 -23737.182) rotate(45)" stroke-linecap="round" stroke-width="1"/>
-                                        <line id="Ligne_24" data-name="Ligne 24" y1="7.071" transform="translate(-21426.045 -23732.182) rotate(135)" stroke-linecap="round" stroke-width="1"/>
-                                    </g>
-                                </svg>
-                            </button>
-                            <ul id="submenu-group" class="site-header__submenu" aria-hidden="true" @mouseLeave="toggleSubmenu($el.previousElementSibling)">
-                                <li>
-                                    <a href="" target="_blank">{{ __('Présentation', 'bemy') }}</a>
-                                </li>
-                                <li>
-                                    <a href="" target="_blank">{{ __('News', 'bemy') }}</a>
-                                </li>
-                            </ul>
-                        </li>
-    
-                    </ul>
-                {% endif %}
-                <a href="" class="site-header__espace-client inline-block px-5 pt-1 pb-1.5 border border-black mt-3 lg:mt-0 lg:border-white rounded-full lg:transition-colors lg:duration-300 hover:bg-rouge hover:border-rouge">{{ __('Espace Client', 'bemy') }}</a>
-            </nav>
-            <div class="pointer-events-none fixed bg-black inset-0 z-0 transition-opacity duration-500 lg:hidden" :class="[menuOpen ? 'opacity-50' : 'opacity-0']"></div>
+            <div class="hidden md:block img-container w-full aspect-video overflow-hidden shrink-0 md:aspect-auto">
+                <img src="{{ function('get_template_directory_uri') }}/src/images/visuel-popin.jpg" alt="green field" loading="lazy">
+            </div>
         </div>
-    </header>
-
-    {% include "components/version-selection.twig" %}
+    
+        <div class="absolute z-0 inset-0 bg-black opacity-50"></div>
+    </div>
 </div>
