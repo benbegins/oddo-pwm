@@ -1,6 +1,6 @@
 {
     "key": "group_65439d8e83105",
-    "title": "Hero Section",
+    "title": "Section Hero",
     "fields": [
         {
             "key": "field_65439d8eca71e",
@@ -124,5 +124,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698930338
+    "modified": 1699269347
 }

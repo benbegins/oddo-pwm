@@ -78,7 +78,7 @@
 	}
 
 	&__submenu {
-		@apply overflow-hidden h-0 transition-all duration-500 lg:absolute lg:top-full lg:w-auto lg:bg-white lg:text-black;
+		@apply overflow-hidden h-0 transition-all duration-500 lg:absolute lg:top-full lg:w-auto lg:bg-white lg:text-black lg:shadow-xl;
 
 		a {
 			@apply block relative py-2.5 pl-6 lg:transition-colors lg:duration-200 lg:px-5 lg:py-3 lg:hover:bg-greige;

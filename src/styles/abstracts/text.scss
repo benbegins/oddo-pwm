@@ -1,0 +1,13 @@
+.section-title {
+	@apply text-sm lg:text-base font-bold text-mint uppercase tracking-widest leading-none md:-ml-6;
+
+	&.white {
+		@apply text-white;
+	}
+}
+
+.rich-text {
+	p:not(:first-child) {
+		@apply mt-6;
+	}
+}

@@ -28,11 +28,15 @@ function VersionSelection() {
 				// If a version is selected
 				if (!versionSelected) {
 					// Display the popin
-					const body = document.querySelector("body")
-					body.style.overflow = "hidden"
-					this.popinDisplayed = true
+					this.openPopin()
 				}
 			}, 1000)
+		},
+
+		openPopin() {
+			const body = document.querySelector("body")
+			body.style.overflow = "hidden"
+			this.popinDisplayed = true
 		},
 
 		toggleSelectVersion() {
@@ -88,6 +92,36 @@ function VersionSelection() {
 				.catch((error) => {
 					console.log(error)
 				})
+		},
+
+		homepage(homeUrls) {
+			const versionSelected = sessionStorage.getItem("version")
+
+			if (versionSelected && homeUrls) {
+				const urls = homeUrls.split(",")
+				let redirectUrl = urls[0]
+
+				switch (versionSelected) {
+					case "france":
+						redirectUrl = urls[0]
+						break
+
+					case "germany":
+						redirectUrl = urls[1]
+						break
+
+					case "switzerland":
+						redirectUrl = urls[2]
+						break
+
+					default:
+						break
+				}
+
+				setTimeout(() => {
+					window.location.href = redirectUrl
+				}, 250)
+			}
 		},
 	}
 }

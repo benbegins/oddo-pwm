@@ -1,0 +1,153 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    
+    {% include "components/hero.twig" %}
+
+    {% include "components/presentation.twig" %}
+
+
+    {# Nos clients #}
+    {% set clients = post.meta('clients').list_clients %}
+    {% if clients %}
+    <section v-scope="Slider({slidesPerPage: 3})"  class="pb-56 lg:pb-80">
+        <div class="container">
+            <h2 class="section-title">{{ __('Nos clients', 'bemy') }}</h2>
+        </div>
+
+        <div @vue:mounted="initSlider($el, alignArrows = true, alignText = true)" class="slider-container mt-4 lg:mt-6">
+            <div class="slider-navigation-container container relative">
+                <button class="swiper-button swiper-button-prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21.222" viewBox="0 0 11 21.222">
+                        <path id="Tracé_1133" data-name="Tracé 1133" d="M10.61,11a1.318,1.318,0,0,1-.936-.387L.195,1.134A.663.663,0,0,1,.195.2a.658.658,0,0,1,.937,0L10.61,9.674,20.089.2a.658.658,0,0,1,.937,0,.658.658,0,0,1,0,.937l-9.478,9.478A1.315,1.315,0,0,1,10.61,11Z" transform="translate(0 21.222) rotate(-90)" fill="#d52819"/>
+                    </svg>
+                </button>
+                <button class="swiper-button swiper-button-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21.222" viewBox="0 0 11 21.222">
+                        <path id="Tracé_1133" data-name="Tracé 1133" d="M10.61,11a1.318,1.318,0,0,1-.936-.387L.195,1.134A.663.663,0,0,1,.195.2a.658.658,0,0,1,.937,0L10.61,9.674,20.089.2a.658.658,0,0,1,.937,0,.658.658,0,0,1,0,.937l-9.478,9.478A1.315,1.315,0,0,1,10.61,11Z" transform="translate(0 21.222) rotate(-90)" fill="#d52819"/>
+                    </svg>
+                </button>
+            </div> 
+            <div class="swiper">
+                <ul class="swiper-wrapper">
+                    {% for client in clients %}
+                        <li class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="img-container w-full aspect-portrait bg-black">
+                                    {{ function('wp_get_attachment_image', client.visual, "medium_large") }}
+                                </div>
+                                <h3 class="slide-title text-md lg:text-xl font-baskerville">{{ client.title }}</h3>
+                                <p>{{ client.content }}</p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    
+
+
+    {# Citation #}
+    {% set citation = post.meta('section_citation') %}
+    {% if citation %}
+    <section class="bg-vert py-56 lg:py-80">
+        <div class="container">
+            <div class="text-center max-w-3xl mx-auto">
+                <div class="relative p-8 lg:px-16">
+                    <svg class="absolute top-0 right-0" xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 40 48">
+                        <path id="Tracé_370" data-name="Tracé 370" d="M556.352,690.6v48h40a106.824,106.824,0,0,1-40-48" transform="translate(596.352 738.601) rotate(180)" fill="#003d39"/>
+                    </svg>
+                    <p class="text-lg lg:text-3xl font-light leading-tight">{{ citation.citation }}</p>
+                    <svg class="absolute left-0 bottom-0 rotate-180" xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 40 48">
+                        <path id="Tracé_370" data-name="Tracé 370" d="M556.352,690.6v48h40a106.824,106.824,0,0,1-40-48" transform="translate(596.352 738.601) rotate(180)" fill="#003d39"/>
+                    </svg>
+                </div>
+                <div class="mt-8">
+                    <div class="img-container w-20 h-20 rounded-full overflow-hidden mx-auto">
+                        {{ function('wp_get_attachment_image', citation.photo, "thumbnail") }}
+                    </div>
+                    <p class="font-bold mt-4">{{ citation.name }}</p>
+                    <p class="font-light">{{ citation.job_title }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+
+
+    {# Awards #}
+    {% set awards = post.meta('section_awards').list_awards %}
+    {% if awards %}
+    <section v-scope="Slider({slidesPerPage: 4})" class="py-56 lg:py-80">
+        <div class="container">
+            <h2 class="section-title">{{ __('Récompenses', 'bemy') }}</h2>
+        </div>
+
+        <div @vue:mounted="initSlider($el, alignArrows = true, alignText = true)" class="slider-container mt-4 lg:mt-6">
+            <div class="slider-navigation-container container relative">
+                <button class="swiper-button swiper-button-prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21.222" viewBox="0 0 11 21.222">
+                        <path id="Tracé_1133" data-name="Tracé 1133" d="M10.61,11a1.318,1.318,0,0,1-.936-.387L.195,1.134A.663.663,0,0,1,.195.2a.658.658,0,0,1,.937,0L10.61,9.674,20.089.2a.658.658,0,0,1,.937,0,.658.658,0,0,1,0,.937l-9.478,9.478A1.315,1.315,0,0,1,10.61,11Z" transform="translate(0 21.222) rotate(-90)" fill="#d52819"/>
+                    </svg>
+                </button>
+                <button class="swiper-button swiper-button-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21.222" viewBox="0 0 11 21.222">
+                        <path id="Tracé_1133" data-name="Tracé 1133" d="M10.61,11a1.318,1.318,0,0,1-.936-.387L.195,1.134A.663.663,0,0,1,.195.2a.658.658,0,0,1,.937,0L10.61,9.674,20.089.2a.658.658,0,0,1,.937,0,.658.658,0,0,1,0,.937l-9.478,9.478A1.315,1.315,0,0,1,10.61,11Z" transform="translate(0 21.222) rotate(-90)" fill="#d52819"/>
+                    </svg>
+                </button>
+            </div> 
+            <div class="swiper">
+                <ul class="swiper-wrapper">
+                    {% for award in awards %}
+                        <li class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="img-container w-full aspect-portrait bg-black">
+                                    {{ function('wp_get_attachment_image', award.award, "medium") }}
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+
+
+
+    {# Meet us #}
+    {% set meet_us = post.meta('section_meet_us') %}
+    {% if meet_us %}
+    <section class="pb-56 lg:pb-80">
+        <div class="container">
+            <h2 class="section-title  mb-4 lg:mb-6">{{ __('Nous rencontrer', 'bemy') }}</h2>
+            <div class="grid gap-8 md:gap-6 md:justify-items-start md:grid-cols-3 md:mb-6 lg:gap-8">
+                {% for country in meet_us.countries %}
+                    <div class="flex flex-col gap-4 lg:gap-6">
+                        <div class="img-container w-full aspect-portrait bg-black">
+                            {{ function('wp_get_attachment_image', country.photo, "medium_large") }}
+                        </div>
+                        <h3 class="font-baskerville text-md lg:text-xl">{{country.country}}</h3>
+                        <p>{{country.description}}</p>
+                        <a href="" class="md:hidden">{{ __('Nous contacter', 'bemy') }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="grid gap-8 md:justify-items-start md:gap-6 md:grid-cols-3 lg:gap-8">
+                {% for country in meet_us.countries %}
+                    <a href="" class="btn-secondary hidden md:inline-block">{{ __('Nous contacter', 'bemy') }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    
+    
+
+{% endblock %}

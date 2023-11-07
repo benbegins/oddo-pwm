@@ -7,7 +7,7 @@
                 {% set post_translations = function('pll_get_post_translations', post.id) %}
                 {% if post_translations %}
                     <div>
-                        <button class="flex gap-2" @click="popinDisplayed = true">
+                        <button class="flex gap-2" @click="openPopin">
                             {% for lang, id in post_translations %}
                                 {% if id == post.id %}
                                     <span class="text-rouge">{{lang|capitalize}}</span>

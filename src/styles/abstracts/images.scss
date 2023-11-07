@@ -1,4 +1,5 @@
 .img-container {
+	@apply overflow-hidden;
 	img {
 		@apply object-cover w-full h-full;
 	}

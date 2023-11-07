@@ -40,6 +40,9 @@ export default {
 		},
 
 		extend: {
+			aspectRatio: {
+				portrait: "17/20",
+			},
 			spacing: {
 				56: "3.5rem",
 				80: "5rem",

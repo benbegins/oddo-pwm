@@ -1,0 +1,18 @@
+{% set section = post.meta('section_presentation') %}
+
+{% if section %}
+    <section class="py-56 lg:py-80">
+        <div class="container">
+            <div class="flex flex-col items-start gap-4 lg:w-3/4">
+                <h2 class="section-title lg:mb-1">{{ section.section_title }}</h2>
+                <h3 class="text-lg lg:text-2xl font-baskerville">{{ section.content_title }}</h3>
+                <div class="rich-text">{{section.content}}</div>
+                {% set button = section.bouton %}
+                {% if button.url %}
+                    <a href="{{ button.url }}" class="btn-primary mt-4">{{ button.text }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endif %}
+

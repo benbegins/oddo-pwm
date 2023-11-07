@@ -1,0 +1,73 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    
+    {% include "components/hero.twig" %}
+
+    {% include "components/presentation.twig" %}
+    
+    {% set section = post.meta('proposition') %}
+    {% include "components/section-image-text.twig" with {section: section} %}
+
+
+    {# Valeurs #}
+    {% set valeurs = post.meta('valeurs') %}
+    {% if valeurs %}
+    <section v-scope="Slider({slidesPerPage: 2.5})" class="py-56 lg:py-80">
+        <div class="container">
+            <h2 class="section-title">{{ __('Nos valeurs', 'bemy') }}</h2>
+        </div>
+
+        <div @vue:mounted="initSlider($el, alignArrows = false, alignText = false)" class="slider-container mt-4 lg:mt-6">
+            <div class="slider-navigation-container container absolute inset-0">
+                <button class="swiper-button swiper-button-prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21.222" viewBox="0 0 11 21.222">
+                        <path id="Tracé_1133" data-name="Tracé 1133" d="M10.61,11a1.318,1.318,0,0,1-.936-.387L.195,1.134A.663.663,0,0,1,.195.2a.658.658,0,0,1,.937,0L10.61,9.674,20.089.2a.658.658,0,0,1,.937,0,.658.658,0,0,1,0,.937l-9.478,9.478A1.315,1.315,0,0,1,10.61,11Z" transform="translate(0 21.222) rotate(-90)" fill="#d52819"/>
+                    </svg>
+                </button>
+                <button class="swiper-button swiper-button-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21.222" viewBox="0 0 11 21.222">
+                        <path id="Tracé_1133" data-name="Tracé 1133" d="M10.61,11a1.318,1.318,0,0,1-.936-.387L.195,1.134A.663.663,0,0,1,.195.2a.658.658,0,0,1,.937,0L10.61,9.674,20.089.2a.658.658,0,0,1,.937,0,.658.658,0,0,1,0,.937l-9.478,9.478A1.315,1.315,0,0,1,10.61,11Z" transform="translate(0 21.222) rotate(-90)" fill="#d52819"/>
+                    </svg>
+                </button>
+            </div> 
+            <div class="swiper">
+                <ul class="swiper-wrapper">
+                    {% for index, valeur in valeurs %}
+                        <li class="swiper-slide">
+                            <div class="flex flex-col gap-4">
+                                <h3 class="font-baskerville text-lg lg:text-2xl">
+                                    <span class="font-lato text-rouge text-sm uppercase font-bold">0{{index + 1}}.</span>
+                                    {{valeur.title}}
+                                </h3>
+                                <p>{{valeur.content}}</p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+
+    {# Chiffres #}
+    {% set chiffres = post.meta('chiffres_cles') %}
+    {% if chiffres %}
+    <section class="section-chiffres-cles bg-greige">
+
+        <ul class="section-chiffres-cles__list text-mint">
+            {% for chiffre in chiffres %}
+                <li class="section-chiffres-cles__item">
+                    <div>
+                        <h3 class="font-baskerville text-2xl lg:text-4xl">{{chiffre.chiffre}}</h3>
+                        <p class="font-light lg:text-lg">{{chiffre.description}}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </section>
+    {% endif %}
+
+{% endblock %}

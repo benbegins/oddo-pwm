@@ -15,6 +15,7 @@ body {
 }
 
 .container {
+	@apply md:w-11/12;
 	max-width: calc(1240px + 3rem);
 }
 

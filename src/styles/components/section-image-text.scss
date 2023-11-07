@@ -1,0 +1,14 @@
+.section-image-text {
+	&__container {
+		@apply md:grid md:grid-cols-2;
+		max-width: 1440px;
+		margin-inline: auto;
+	}
+
+	&__content {
+		@media screen and (min-width: 768px) {
+			@apply mx-auto;
+			width: 88%;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{% if section %}
+<section class="section-image-text">
+    <div class="section-image-text__container bg-armerie text-white">
+        <div class="container py-56 lg:py-80">
+            <div class="section-image-text__content">
+                <h2 class="section-title white">{{section.section_title}}</h2>
+                <h3 class="font-baskerville my-4 text-lg lg:text-2xl">{{section.content_title}}</h3>
+                <div class="rich-text">
+                    {{section.content}}
+                </div>
+            </div>
+        </div>
+        <div class="img-container w-full">
+            {{ function('wp_get_attachment_image', section.visual, "large") }}
+        </div>
+    </div>
+</section>
+{% endif %}
+

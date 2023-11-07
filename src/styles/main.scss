@@ -5,6 +5,11 @@
 // Abstracts
 @import "./abstracts/global";
 @import "./abstracts/images";
+@import "./abstracts/text";
+@import "./abstracts/buttons";
 
 // Components
 @import "./components/header";
+@import "./components/slider";
+@import "./components/section-image-text";
+@import "./components/section-chiffres-cles";
