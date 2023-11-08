@@ -2,23 +2,23 @@
 	--border-color: #dee2e6;
 
 	&__list {
-		@apply grid grid-cols-2 mx-auto md:w-11/12 md:px-6 lg:grid-rows-2 lg:w-full lg:px-0;
+		@apply grid grid-cols-2 mx-auto md:grid-rows-2 md:w-full md:px-0;
 	}
 
 	&__item {
-		@apply py-56 px-6 lg:py-80 lg:px-0 lg:flex lg:items-center lg:justify-center lg:min-h-[360px];
+		@apply py-56 px-6 md:py-80 md:px-0 md:flex md:items-center md:justify-center lg:min-h-[360px];
 		border-color: var(--border-color);
 
 		&:nth-child(1) {
-			@apply col-span-2 lg:col-span-1 lg:row-span-2 border-b lg:border-b-0 lg:border-r;
+			@apply col-span-2 md:col-span-1 md:row-span-2 border-b md:border-b-0 md:border-r;
 		}
 
 		&:nth-child(2) {
-			@apply lg:text-center border-r lg:border-r-0 lg:border-b;
+			@apply md:text-center border-r md:border-r-0 md:border-b;
 		}
 
 		&:nth-child(3) {
-			@apply lg:text-center;
+			@apply md:text-center;
 		}
 	}
 }

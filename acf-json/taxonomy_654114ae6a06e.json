@@ -49,12 +49,12 @@
     "hierarchical": 1,
     "show_ui": 1,
     "show_in_menu": 1,
-    "show_in_nav_menus": 1,
+    "show_in_nav_menus": 0,
     "show_in_rest": 0,
     "rest_base": "",
     "rest_namespace": "wp\/v2",
     "rest_controller_class": "WP_REST_Terms_Controller",
-    "show_tagcloud": 1,
+    "show_tagcloud": 0,
     "show_in_quick_edit": 1,
     "show_admin_column": 1,
     "rewrite": {
@@ -71,5 +71,5 @@
     "meta_box": "default",
     "meta_box_cb": "",
     "meta_box_sanitize_cb": "",
-    "modified": 1698764193
+    "modified": 1699386193
 }

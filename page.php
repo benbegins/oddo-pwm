@@ -88,5 +88,14 @@ if($type_de_page == 'about'){
 
 
 
+/**
+ * MANAGER PAGE
+ */
+if($type_de_page == 'manager'){
+    $page_name = 'manager';
+}
+
+
+
 
 Timber::render( array( 'pages/page-' . $page_name . '.twig', 'pages/page.twig' ), $context );
