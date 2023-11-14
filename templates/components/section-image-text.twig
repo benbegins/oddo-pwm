@@ -1,6 +1,6 @@
 {% if section %}
 <section class="section-image-text">
-    <div class="section-image-text__container bg-armerie text-white">
+    <div class="section-image-text__container bg-armerie text-white relative">
         <div class="container py-56 lg:py-80">
             <div class="section-image-text__content">
                 <h2 class="section-title white">{{section.section_title}}</h2>
@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div>
-        <div class="img-container w-full">
+        <div class="img-container w-full md:absolute md:h-full md:w-1/2 md:right-0 md:top-0">
             {{ function('wp_get_attachment_image', section.visual, "large") }}
         </div>
     </div>

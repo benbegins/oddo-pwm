@@ -3,7 +3,8 @@
 
 	// Sticky header
 	&.is-scrolling,
-	&.is-open {
+	&.is-open,
+	&.is_dark {
 		--color: #272529;
 		@apply bg-white;
 

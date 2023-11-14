@@ -14,4 +14,12 @@
 	p:not(:first-child) {
 		@apply mt-6;
 	}
+
+	ul {
+		@apply list-disc list-inside mt-6;
+
+		li:not(:last-child) {
+			@apply mb-4;
+		}
+	}
 }

@@ -1,9 +1,22 @@
 {% extends "layout.twig" %}
 
 {% block content %}
-    
-    <div class="flex items-center h-screen">
-        <h1>Manager</h1>
-    </div>
+
+    <section class="py-56 lg:py-80">
+        <div class="container pt-56 lg:pt-[8vw] grid gap-6 lg:gap-8 lg:grid-cols-3">
+            <div class="lg:col-span-2">
+                <div class="lg:w-5/6">
+                    <h1 class="font-baskerville text-2xl lg:text-4xl">{{manager.meta('first_name')}} {{manager.meta('last_name')}}</h1>
+                    <h2 class="font-light leading-tight text-lg lg:text-3xl">{{manager.meta('job_title')}}</h2>
+                    <p class="mt-4 lg:mt-6">{{manager.meta('presentation')}}</p>
+                </div>
+            </div>
+            <div>
+                <div class="img-container aspect-portrait bg-black">
+                    {{function('get_the_post_thumbnail', manager.id, 'medium_large')}}
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

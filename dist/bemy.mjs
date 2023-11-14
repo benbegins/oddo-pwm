@@ -722,7 +722,7 @@ function Qi(e) {
     },
     scrollEvent(t) {
       this.siteHeader = t, window.addEventListener("scroll", () => {
-        window.scrollY > 50 ? t.classList.add("is-scrolling") : t.classList.remove("is-scrolling");
+        window.scrollY > 50 ? t.classList.add("is-scrolling") : t.classList.remove("is-scrolling"), this.submenuOpen && this.closeAllSubmenus();
       });
     },
     toggleSubmenu(t) {
@@ -3256,37 +3256,44 @@ function xn(e) {
 function En(e) {
   return {
     slider: null,
-    sliderContainer: null,
-    sliderLength: 0,
-    sliderIndex: 0,
-    initSlider(t, i = !1, s = !1) {
-      const n = t.querySelector(".swiper"), r = t.querySelector(".swiper-button-prev"), l = t.querySelector(".swiper-button-next"), o = {
+    // sliderContainer: null,
+    // sliderLength: 0,
+    // sliderIndex: 0,
+    slidesPerPage: e.slidesPerPage ? e.slidesPerPage : 4,
+    initSlider(t, i = !1, s = !1, n = !1) {
+      const r = t.querySelector(".swiper"), l = t.querySelector(".swiper-button-prev"), o = t.querySelector(".swiper-button-next"), a = {
         modules: [xn],
         navigation: {
-          nextEl: l,
-          prevEl: r
+          nextEl: o,
+          prevEl: l
         },
+        centeredSlides: n,
         spaceBetween: 24,
         slidesPerView: "auto",
         breakpoints: {
           1024: {
-            slidesPerView: e.slidesPerPage ? e.slidesPerPage : 4,
+            slidesPerView: this.slidesPerPage,
             spaceBetween: 32
           }
         }
       };
-      this.slider = new G(n, o), i && window.innerWidth >= 1024 && this.positionArrows(t), s && window.innerWidth > 640 && setTimeout(() => {
+      this.slider = new G(r, a), i && window.innerWidth >= 1024 && this.positionArrows(t), s && window.innerWidth > 640 && setTimeout(() => {
         this.setHeight(t);
       }, 1e3), window.addEventListener("resize", () => {
         i && window.innerWidth >= 1024 && this.positionArrows(t), s && window.innerWidth > 640 ? this.setHeight(t) : this.resetHeight(t);
       });
     },
     positionArrows(t) {
-      const i = t.querySelectorAll(".swiper-button");
-      let n = t.querySelector(".img-container").offsetHeight;
-      i.forEach((r) => {
-        r.style.top = `${n / 2}px`;
-      });
+      const i = t.querySelectorAll(".swiper-button"), s = t.querySelector(".img-container");
+      if (s) {
+        let n = s.offsetHeight;
+        i.forEach((r) => {
+          r.style.top = `${n / 2}px`;
+        });
+      } else
+        i.forEach((n) => {
+          n.style.top = "50%";
+        });
     },
     setHeight(t) {
       const i = t.querySelectorAll(".slide-title");

@@ -21,6 +21,9 @@ function Menu(props) {
 				} else {
 					el.classList.remove("is-scrolling")
 				}
+				if (this.submenuOpen) {
+					this.closeAllSubmenus()
+				}
 			})
 		},
 

@@ -1,0 +1,103 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+    {% include "components/hero.twig" %}
+
+    {% include "components/presentation.twig" %}
+
+    {% set sections = post.meta('sections') %}
+    {% if sections %}
+        {% for section in sections %}
+
+            {# Section image/text #}
+            {% if section.acf_fc_layout == 'bloc_image_text' %}
+                {% include "components/section-image-text.twig" %}
+            {% endif %}
+        
+
+            {# Section slider bloc text #}
+            {% if section.acf_fc_layout == 'slider_bloc_text' %}
+                <section v-scope="Slider({slidesPerPage: 3})" class="py-56 lg:py-80">
+                    <div class="container">
+                        <h2 class="section-title">{{ section.section_title }}</h2>
+                        <h3 class="font-baskerville my-4 text-lg lg:text-2xl">{{ section.content_title }}</h3>
+                    </div>
+
+                    <div @vue:mounted="initSlider($el, alignArrows = false, alignText = false)" class="slider-container mt-4 lg:mt-6">
+                        <div class="slider-navigation-container container absolute inset-0">
+                            <button class="swiper-button swiper-button-prev">
+                                <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                            </button>
+                            <button class="swiper-button swiper-button-next">
+                                <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                            </button>
+                        </div> 
+                        <div class="swiper">
+                            <ul class="swiper-wrapper items-stretch">
+                                {% for index, bloc in section.blocs %}
+                                    <li class="swiper-slide h-auto bg-armerie text-white p-8 lg:p-10">
+                                        <div class="flex flex-col gap-4">
+                                            <p class="font-lato leading-none text-mint text-2xl lg:text-5xl uppercase font-light">0{{index + 1}}.</p>
+                                            <h3 class="font-baskerville text-md lg:text-lg">
+                                                {{bloc.bloc_title}}
+                                            </h3>
+                                            <div class="rich-text">{{bloc.content}}</div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+            
+        {% endfor %}
+    {% endif %}
+
+
+
+    {# Autre expertises #}
+    {% if other_expertises %}
+        <section v-scope="Slider({ slidesPerPage: 1.35 })" class="relative bg-armerie py-56 lg:py-80">
+            <div class="container relative z-10">
+                <h2 class="section-title white">{{ __('Autres expertises', 'bemy') }}</h2>
+            </div>
+
+            <div @vue:mounted="initSlider($el, alignArrows = false, alignText = false, center = true)" class="slider-container slider-expertises mt-4 lg:mt-6">
+                <div>
+                    <div class="slider-navigation-container container absolute inset-0">
+                        <button class="swiper-button swiper-button-prev">
+                            <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                        </button>
+                        <button class="swiper-button swiper-button-next">
+                            <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                        </button>
+                    </div>
+                </div>
+                <div class="swiper">
+                    <ul class="swiper-wrapper items-stretch">
+                        {% for expertise in other_expertises %}
+                            {% if expertise.id != post.id %}
+                                <li class="swiper-slide h-auto">
+                                    <div class="flex flex-col items-start gap-4 bg-white h-full p-8 lg:p-10 lg:w-9/12">
+                                        <h3 class="font-baskerville text-md lg:text-lg">
+                                            {{expertise.post_title}}
+                                        </h3>
+                                        <div>{{expertise.meta('section_presentation').content|excerpt(30)}}</div>
+                                        <a href="{{function('get_the_permalink', expertise.id)}}" class="btn-primary borderonly mt-2">{{ __('En savoir plus', 'bemy') }}</a>
+                                    </div>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="absolute inset-0 img-container">
+                <img src="{{function('get_template_directory_uri')}}/src/images/bg-slider-expertises.jpg" alt="other expertises">
+            </div>
+        </section>
+    {% endif %}
+
+{% endblock %}

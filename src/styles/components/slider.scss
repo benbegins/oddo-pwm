@@ -19,6 +19,10 @@
 
 		&-slide {
 			@apply w-11/12 md:w-5/12;
+
+			&.h-auto {
+				height: auto !important;
+			}
 		}
 
 		&-button {
@@ -37,6 +41,16 @@
 
 			&:hover {
 				@apply bg-opacity-90;
+			}
+		}
+	}
+
+	&.slider-expertises {
+		.swiper {
+			@apply w-full max-w-none;
+
+			&-slide {
+				@apply lg:flex lg:justify-center;
 			}
 		}
 	}

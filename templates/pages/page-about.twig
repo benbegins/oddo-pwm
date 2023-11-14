@@ -21,14 +21,10 @@
         <div @vue:mounted="initSlider($el, alignArrows = false, alignText = false)" class="slider-container mt-4 lg:mt-6">
             <div class="slider-navigation-container container absolute inset-0">
                 <button class="swiper-button swiper-button-prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21.222" viewBox="0 0 11 21.222">
-                        <path id="Tracé_1133" data-name="Tracé 1133" d="M10.61,11a1.318,1.318,0,0,1-.936-.387L.195,1.134A.663.663,0,0,1,.195.2a.658.658,0,0,1,.937,0L10.61,9.674,20.089.2a.658.658,0,0,1,.937,0,.658.658,0,0,1,0,.937l-9.478,9.478A1.315,1.315,0,0,1,10.61,11Z" transform="translate(0 21.222) rotate(-90)" fill="#d52819"/>
-                    </svg>
+                    <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
                 </button>
                 <button class="swiper-button swiper-button-next">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21.222" viewBox="0 0 11 21.222">
-                        <path id="Tracé_1133" data-name="Tracé 1133" d="M10.61,11a1.318,1.318,0,0,1-.936-.387L.195,1.134A.663.663,0,0,1,.195.2a.658.658,0,0,1,.937,0L10.61,9.674,20.089.2a.658.658,0,0,1,.937,0,.658.658,0,0,1,0,.937l-9.478,9.478A1.315,1.315,0,0,1,10.61,11Z" transform="translate(0 21.222) rotate(-90)" fill="#d52819"/>
-                    </svg>
+                    <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
                 </button>
             </div> 
             <div class="swiper">
@@ -65,14 +61,10 @@
         <div @vue:mounted="initSlider($el, alignArrows = true, alignText = false)" class="slider-container mt-4 lg:mt-6">
             <div class="slider-navigation-container container relative">
                 <button class="swiper-button swiper-button-prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21.222" viewBox="0 0 11 21.222">
-                        <path id="Tracé_1133" data-name="Tracé 1133" d="M10.61,11a1.318,1.318,0,0,1-.936-.387L.195,1.134A.663.663,0,0,1,.195.2a.658.658,0,0,1,.937,0L10.61,9.674,20.089.2a.658.658,0,0,1,.937,0,.658.658,0,0,1,0,.937l-9.478,9.478A1.315,1.315,0,0,1,10.61,11Z" transform="translate(0 21.222) rotate(-90)" fill="#d52819"/>
-                    </svg>
+                    <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
                 </button>
                 <button class="swiper-button swiper-button-next">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="21.222" viewBox="0 0 11 21.222">
-                        <path id="Tracé_1133" data-name="Tracé 1133" d="M10.61,11a1.318,1.318,0,0,1-.936-.387L.195,1.134A.663.663,0,0,1,.195.2a.658.658,0,0,1,.937,0L10.61,9.674,20.089.2a.658.658,0,0,1,.937,0,.658.658,0,0,1,0,.937l-9.478,9.478A1.315,1.315,0,0,1,10.61,11Z" transform="translate(0 21.222) rotate(-90)" fill="#d52819"/>
-                    </svg>
+                    <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
                 </button>
             </div> 
             <div class="swiper">
@@ -86,7 +78,7 @@
                                 {% set manager_url = function('esc_url', link) %}
                                 <a href="{{manager_url}}">
                                     <div class="img-container w-full aspect-portrait bg-black">
-                                        {{function('get_the_post_thumbnail', manager.manager.id, 'medium_large')}}
+                                        {{function('get_the_post_thumbnail', manager.manager.id, 'medium')}}
                                     </div>
                                 </a>
 

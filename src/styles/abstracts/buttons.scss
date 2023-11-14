@@ -1,8 +1,16 @@
 .btn-primary {
-	@apply bg-rouge inline-block px-4 py-3 text-white rounded-full transition-colors duration-300;
+	@apply bg-rouge inline-block px-5 pb-3 pt-2.5 text-white rounded-full transition-colors duration-300;
 
 	&:hover {
 		@apply bg-black;
+	}
+
+	&.borderonly {
+		@apply bg-transparent border border-rouge text-rouge;
+
+		&:hover {
+			@apply bg-rouge text-white;
+		}
 	}
 }
 

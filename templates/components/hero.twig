@@ -2,8 +2,9 @@
 
 {% if hero.page_title %}
 <section class="lg:relative">
-    <div class="img-container aspect-square sm:aspect-video lg:aspect-auto lg:absolute lg:z-0 lg:inset-0 lg:overflow-hidden">
+    <div class="img-container relative aspect-square sm:aspect-video lg:aspect-auto lg:absolute lg:z-0 lg:inset-0 lg:overflow-hidden">
         {{ function('wp_get_attachment_image', hero.visual.id, "2048x2048") }}
+        <div class="lg:hidden absolute z-10 inset-0 bg-[#000000] opacity-30"></div>
     </div>
     <div class="hidden lg:block absolute z-10 inset-0 bg-[#000000] opacity-30"></div>
     <div class="container mt-6 lg:relative lg:z-20 lg:text-white lg:py-80 lg:min-h-[85vh] lg:flex lg:flex-col lg:justify-center">

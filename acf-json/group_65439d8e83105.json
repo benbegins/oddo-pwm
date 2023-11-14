@@ -120,9 +120,12 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "discussion",
+        "comments"
+    ],
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1699269347
+    "modified": 1699445758
 }

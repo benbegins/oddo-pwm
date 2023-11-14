@@ -5,11 +5,12 @@ import "swiper/css"
 function Slider(props) {
 	return {
 		slider: null,
-		sliderContainer: null,
-		sliderLength: 0,
-		sliderIndex: 0,
+		// sliderContainer: null,
+		// sliderLength: 0,
+		// sliderIndex: 0,
+		slidesPerPage: props.slidesPerPage ? props.slidesPerPage : 4,
 
-		initSlider(el, alignArrows = false, alignText = false) {
+		initSlider(el, alignArrows = false, alignText = false, center = false) {
 			const sliderElement = el.querySelector(".swiper")
 			const btnPrev = el.querySelector(".swiper-button-prev")
 			const btnNext = el.querySelector(".swiper-button-next")
@@ -20,11 +21,12 @@ function Slider(props) {
 					nextEl: btnNext,
 					prevEl: btnPrev,
 				},
+				centeredSlides: center,
 				spaceBetween: 24,
 				slidesPerView: "auto",
 				breakpoints: {
 					1024: {
-						slidesPerView: props.slidesPerPage ? props.slidesPerPage : 4,
+						slidesPerView: this.slidesPerPage,
 						spaceBetween: 32,
 					},
 				},
@@ -55,10 +57,17 @@ function Slider(props) {
 		positionArrows(container) {
 			const buttons = container.querySelectorAll(".swiper-button")
 			const img = container.querySelector(".img-container")
-			let imgHeight = img.offsetHeight
-			buttons.forEach((button) => {
-				button.style.top = `${imgHeight / 2}px`
-			})
+
+			if (img) {
+				let imgHeight = img.offsetHeight
+				buttons.forEach((button) => {
+					button.style.top = `${imgHeight / 2}px`
+				})
+			} else {
+				buttons.forEach((button) => {
+					button.style.top = "50%"
+				})
+			}
 		},
 
 		setHeight(container) {
