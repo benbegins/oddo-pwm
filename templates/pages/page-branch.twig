@@ -1,0 +1,94 @@
+{% extends "layout.twig" %}
+
+{% block content %}    
+
+    {% include "components/hero.twig" with { hero: branch.meta('hero').hero } %}
+
+    <section class="py-56 lg:py-80 lg:relative lg:z-10">
+        <div class="container">
+            <h2 class="section-title">{{branch.name}}</h2>
+
+            {% set infos = branch.meta('infos') %}
+            <div class="mt-4 lg:mt-6 grid gap-4 md:grid-cols-2 md:gap-8 md:items-center">
+                {# Left #}
+                <div class="img-container aspect-paysage">
+                    {{ function('wp_get_attachment_image', infos.photo, 'medium_large') }}
+                </div>
+                {# right #}
+                <div class="lg:w-5/6 lg:ml-auto">
+                    <div>
+                        <h3 class="text-lg lg:text-2xl font-baskerville">{{branch.name}}</h3>
+                        <p>{{ infos.adress|nl2br }}</p>
+                    </div>
+                    <div class="mt-4 flex flex-col gap-1 lg:mt-6">
+                        {% if infos.phone %}
+                            <p class="flex items-center gap-2"><span class="text-sm icon-phone"></span>{{ infos.phone }}</p>
+                        {% endif %}
+                        {% if infos.fax %}
+                            <p class="flex items-center gap-2"><span class="text-sm icon-fax"></span>{{ infos.fax }}</p>
+                        {% endif %}
+                        {% if infos.email %}
+                            <p class="flex items-center gap-2"><span class="text-sm icon-email"></span><a href="mailto:{{ infos.email }}">{{ infos.email }}</a></p>
+                        {% endif %}
+                        {% if infos.contact_name %}
+                            <p class="flex items-center gap-2"><span class="text-sm icon-person"></span>{{ infos.contact_name }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    {% set map = branch.meta('map') %}
+    {% if map %}
+        <section class="pb-56 lg:pb-80">
+            <div class="container">
+                <a href="{{map.link}}" target="_blank" class="block img-container">{{ function('wp_get_attachment_image', map.visual, '2048x2048') }}</a>
+            </div>
+        </section>
+    {% endif %}
+
+
+    {# Autres branches #}
+    {% if other_branches %}
+    <section v-scope="Slider({slidesPerPage: 4})"  class="pb-56 lg:pb-80">
+        <div class="container">
+            <h2 class="section-title">{{ __('Autres branches', 'bemy') }}</h2>
+        </div>
+
+        <div @vue:mounted="initSlider($el, alignArrows = true)" class="slider-container mt-4 lg:mt-6">
+            <div class="slider-navigation-container container relative">
+                <button class="swiper-button swiper-button-prev">
+                    <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                </button>
+                <button class="swiper-button swiper-button-next">
+                    <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                </button>
+            </div> 
+            <div class="swiper">
+                <ul class="swiper-wrapper">
+                    {% for branch in other_branches %}
+                        {% set infos = branch.meta('infos') %}
+                        <li class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="img-container w-full aspect-portrait bg-black">
+                                    {{ function('wp_get_attachment_image', infos.photo, "medium") }}
+                                </div>
+                                <h3 class="slide-title text-md lg:text-xl font-baskerville">{{ branch.name }}</h3>
+                                <p>{{ infos.adress }}</p>
+                                <div class="text-right">
+                                    <a href="{{page_agences}}?branchname={{branch.slug}}" class="inline-block border border-rouge text-rouge rounded-full px-5 py-2 transition-colors duration-300 hover:bg-rouge hover:text-white">
+                                        <span class="icon-arrow"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    {% endif %}  
+    
+{% endblock %}

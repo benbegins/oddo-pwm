@@ -39,6 +39,13 @@ if($context['version']){
 }
 $context['home'] = $page_accueil;
 
+// Get page agences
+$page_agences = get_page_by_path( $context['version'] . '/agences');
+if ($page_agences){
+    $context['page_agences'] = get_the_permalink(pll_get_post($page_agences->ID));
+} else {
+    $context['page_agences'] = $context['home'];
+}
 
 
 
@@ -151,6 +158,99 @@ if($type_de_page == 'expertise'){
     }
 }
 
+
+/**
+ * IMPLANTATIONS PAGE
+ */
+if($type_de_page == 'implantations'){
+    $page_name = 'implantations';
+
+    // Branches
+    if (isset($_GET['branchname'])){
+        $branch = $_GET['branchname'];
+        $branch = sanitize_text_field( $branch );
+
+        if($branch){
+            $args = array(
+                'post_type' => 'branch',
+                'name' => $branch,
+            );
+            $branch_post = Timber::get_posts( $args );
+        
+        
+            if(!$branch_post) {
+                wp_redirect( $context['home'] );
+                exit;
+            }
+            
+            $page_name = 'branch';
+            $context['branch'] = $branch_post[0];
+
+
+            // Other branches
+            $args = array(
+                'post_type' => 'branch',
+                'posts_per_page' => -1,
+                'post__not_in' => array($branch_post[0]->ID),
+            );
+            $other_branches = Timber::get_posts( $args );
+            if(!empty($other_branches)){
+                $context['other_branches'] = $other_branches;
+            }
+        }    
+    }
+
+    // Agences
+    else {
+        $args = array(
+            'post_type' => 'branch',
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'pays',
+                    'field' => 'slug',
+                    'terms' => 'france',
+                ),
+            ),
+        );
+        $branches_france = Timber::get_posts( $args );
+        if(!empty($branches_france)){
+            $context['branches_france'] = $branches_france;
+        }
+
+        $args = array(
+            'post_type' => 'branch',
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'pays',
+                    'field' => 'slug',
+                    'terms' => 'germany',
+                ),
+            ),
+        );
+        $branches_germany = Timber::get_posts( $args );
+        if(!empty($branches_germany)){
+            $context['branches_germany'] = $branches_germany;
+        }
+
+        $args = array(
+            'post_type' => 'branch',
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'pays',
+                    'field' => 'slug',
+                    'terms' => 'switzerland',
+                ),
+            ),
+        );
+        $branches_switzerland = Timber::get_posts( $args );
+        if(!empty($branches_switzerland)){
+            $context['branches_switzerland'] = $branches_switzerland;
+        }
+    }
+}
 
 
 

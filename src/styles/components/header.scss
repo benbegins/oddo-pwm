@@ -22,7 +22,7 @@
 				}
 			}
 			&__espace-client {
-				border-color: var(--color);
+				@apply border-black hover:border-rouge hover:text-white;
 			}
 			&__logo-burger {
 				@apply bg-white;

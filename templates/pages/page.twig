@@ -2,7 +2,7 @@
 
 {% block content %}
     
-    {% include "components/hero.twig" %}
+    {% include "components/hero.twig" with {hero: post.meta('hero')} %}
 
     <div class="min-h-screen flex items-center">
     

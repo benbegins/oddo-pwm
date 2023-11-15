@@ -32,9 +32,6 @@ class BemySite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['menufrance'] = new \Timber\Menu( 'menu-france' );
-		$context['menugermany'] = new \Timber\Menu( 'menu-germany' );
-		$context['menuswitzerland'] = new \Timber\Menu( 'menu-switzerland' );
 		$context['options'] = get_fields('options');
 		return $context;
 	}

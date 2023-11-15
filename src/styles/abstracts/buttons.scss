@@ -30,3 +30,21 @@
 		}
 	}
 }
+
+.btn-implantations {
+	.icon-dropdown {
+		@apply transition-transform duration-300;
+	}
+	&.active {
+		.icon-dropdown {
+			@apply rotate-180;
+		}
+	}
+}
+
+.btn-pointer {
+	@apply transition-colors duration-200;
+	&.active {
+		@apply text-rouge;
+	}
+}

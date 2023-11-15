@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    {% include "components/hero.twig" %}
+    {% include "components/hero.twig" with {hero: post.meta('hero')} %}
 
     {% include "components/presentation.twig" %}
 
@@ -95,7 +95,10 @@
             </div>
 
             <div class="absolute inset-0 img-container">
-                <img src="{{function('get_template_directory_uri')}}/src/images/bg-slider-expertises.jpg" alt="other expertises">
+                <img 
+                src="{{function('get_template_directory_uri')}}/src/images/bg-slider-expertises.jpg" 
+                srcset="{{function('get_template_directory_uri')}}/src/images/bg-slider-expertises.jpg.webp 2400w"
+                alt="other expertises">
             </div>
         </section>
     {% endif %}

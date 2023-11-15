@@ -2,7 +2,7 @@
 
 {% block content %}
     
-    {% include "components/hero.twig" %}
+    {% include "components/hero.twig" with {hero: post.meta('hero')} %}
 
     <div v-scope="VersionSelection()" class="h-screen">
         <div @vue:mounted="homepage('{{redirect}}')"></div>

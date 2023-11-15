@@ -16,6 +16,7 @@ export default {
 			greige: "#F7F2EE",
 			armerie: "#003D39",
 			vert: "#B4CEB4",
+			"vert-light": "#D9E6D9",
 		},
 
 		container: {
@@ -27,6 +28,7 @@ export default {
 		},
 
 		fontSize: {
+			"2xs": "0.5rem",
 			xs: "0.75rem",
 			sm: "0.875rem",
 			base: "1rem",
@@ -42,6 +44,7 @@ export default {
 		extend: {
 			aspectRatio: {
 				portrait: "17/20",
+				paysage: "4/3",
 			},
 			spacing: {
 				56: "3.5rem",

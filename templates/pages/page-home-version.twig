@@ -2,7 +2,7 @@
 
 {% block content %}
     
-    {% include "components/hero.twig" %}
+    {% include "components/hero.twig" with {hero: post.meta('hero')} %}
 
     {% include "components/presentation.twig" %}
 
@@ -30,7 +30,7 @@
                         <li class="swiper-slide">
                             <div class="flex flex-col gap-6">
                                 <div class="img-container w-full aspect-portrait bg-black">
-                                    {{ function('wp_get_attachment_image', client.visual, "medium_large") }}
+                                    {{ function('wp_get_attachment_image', client.visual, "medium") }}
                                 </div>
                                 <h3 class="slide-title text-md lg:text-xl font-baskerville">{{ client.title }}</h3>
                                 <p>{{ client.content }}</p>
@@ -53,9 +53,9 @@
         <div class="container">
             <div class="text-center max-w-3xl mx-auto">
                 <div class="relative p-8 lg:px-16">
-                    <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                    <span class="icon-citation text-armerie text-3xl absolute top-0 right-0"></span>
                     <p class="text-lg lg:text-3xl font-light leading-tight">{{ citation.citation }}</p>
-                    <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                    <span class="icon-citation text-armerie text-3xl absolute left-0 bottom-0 rotate-180"></span>
                 </div>
                 <div class="mt-8">
                     <div class="img-container w-20 h-20 rounded-full overflow-hidden mx-auto">
@@ -118,7 +118,7 @@
                 {% for country in meet_us.countries %}
                     <div class="flex flex-col gap-4 lg:gap-6">
                         <div class="img-container w-full aspect-portrait bg-black">
-                            {{ function('wp_get_attachment_image', country.photo, "medium_large") }}
+                            {{ function('wp_get_attachment_image', country.photo, "medium") }}
                         </div>
                         <h3 class="font-baskerville text-md lg:text-xl">{{country.country}}</h3>
                         <p>{{country.description}}</p>
