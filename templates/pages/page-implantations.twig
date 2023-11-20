@@ -36,7 +36,9 @@
         </div>
         <div class="container py-56 lg:absolute lg:w-11/12 lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:flex lg:justify-end">
             <div class="lg:w-1/4">
-                <h2 class="text-sm font-bold uppercase tracking-widest">Implantations</h2>
+                <h2 class="text-sm font-bold uppercase tracking-widest">{{ __('Implantations', 'bemy') }}</h2>
+
+                {% set lang = function('pll_current_language') %}
 
                 {# Allemagne #}
                 {% if branches_germany %}
@@ -51,7 +53,13 @@
                                 <a 
                                     class="px-5 py-2 block hover:bg-greige"
                                     href="{{page_agences}}?branchname={{branch.slug}}">
-                                    {{ branch.name }}
+                                    {% if lang == 'en' and branch.meta('name_en') %}
+                                        {{ branch.meta('name_en')}}
+                                    {% elseif lang == 'de' and branch.meta('name_de') %}
+                                        {{ branch.meta('name_de')}}
+                                    {% else %}
+                                        {{ branch.name }}
+                                    {% endif %}
                                 </a>
                             </li>
                         {% endfor %}
@@ -72,7 +80,13 @@
                                 <a 
                                     class="px-5 py-2 block hover:bg-greige"
                                     href="{{page_agences}}?branchname={{branch.slug}}">
-                                    {{ branch.name }}
+                                    {% if lang == 'en' and branch.meta('name_en') %}
+                                        {{ branch.meta('name_en')}}
+                                    {% elseif lang == 'de' and branch.meta('name_de') %}
+                                        {{ branch.meta('name_de')}}
+                                    {% else %}
+                                        {{ branch.name }}
+                                    {% endif %}
                                 </a>
                             </li>
                         {% endfor %}
@@ -93,7 +107,13 @@
                                 <a 
                                     class="px-5 py-2 block hover:bg-greige"
                                     href="{{page_agences}}?branchname={{branch.slug}}">
-                                    {{ branch.name }}
+                                    {% if lang == 'en' and branch.meta('name_en') %}
+                                        {{ branch.meta('name_en')}}
+                                    {% elseif lang == 'de' and branch.meta('name_de') %}
+                                        {{ branch.meta('name_de')}}
+                                    {% else %}
+                                        {{ branch.name }}
+                                    {% endif %}
                                 </a>
                             </li>
                         {% endfor %}

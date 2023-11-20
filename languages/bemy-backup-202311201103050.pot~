@@ -1,13 +1,14 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 10:38+0000\n"
-"PO-Revision-Date: 2023-11-20 11:03+0000\n"
-"Last-Translator: \n"
-"Language-Team: English (UK)\n"
-"Language: en_GB\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"POT-Creation-Date: 2023-11-20 09:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,24 +18,24 @@ msgstr ""
 
 #: templates/header.twig:6
 msgid "Agences"
-msgstr "Locations"
+msgstr ""
 
 #: templates/components/version-selection.twig:51
-#: templates/pages/page-implantations.twig:47
+#: templates/pages/page-implantations.twig:45
 msgid "Allemagne"
-msgstr "Germany"
+msgstr ""
 
 #: templates/footer.twig:62
 msgid "Application mobile ODDO BHF Banque Privée"
-msgstr "ODDO BHF Banque Privée’s app"
+msgstr ""
 
-#: templates/pages/page-branch.twig:58
+#: templates/pages/page-branch.twig:57
 msgid "Autres branches"
-msgstr "Other branches"
+msgstr ""
 
 #: templates/pages/page-expertise.twig:64
 msgid "Autres expertises"
-msgstr "Other expertises"
+msgstr ""
 
 #. Name of the theme
 #. Author of the theme
@@ -43,26 +44,26 @@ msgstr ""
 
 #: templates/pages/page-about.twig:115
 msgid "Chiffres clés"
-msgstr "Key numbers"
+msgstr ""
 
 #: templates/header.twig:5 templates/footer.twig:88
 msgid "Contactez-nous"
-msgstr "Contact us"
+msgstr ""
 
 #: templates/footer.twig:36
 msgid "Documentation à télécharger"
-msgstr "Downloadable documentation"
+msgstr ""
 
 #: templates/pages/page-expertise.twig:88
 msgid "En savoir plus"
-msgstr "See more"
+msgstr ""
 
 #: templates/header.twig:85
 msgid "Espace Client"
-msgstr "Client login"
+msgstr ""
 
 #: templates/components/version-selection.twig:50
-#: templates/pages/page-implantations.twig:74
+#: templates/pages/page-implantations.twig:66
 msgid "France"
 msgstr ""
 
@@ -70,13 +71,9 @@ msgstr ""
 msgid "https://bemy.studio"
 msgstr ""
 
-#: templates/pages/page-implantations.twig:39
-msgid "Implantations"
-msgstr "Locations"
-
 #: templates/components/version-selection.twig:58
 msgid "Langue"
-msgstr "Language"
+msgstr ""
 
 #: templates/header.twig:78
 msgid "News"
@@ -84,28 +81,28 @@ msgstr ""
 
 #: templates/pages/page-home-version.twig:15
 msgid "Nos clients"
-msgstr "Our clients"
+msgstr ""
 
 #: templates/pages/page-about.twig:18
 msgid "Nos valeurs"
-msgstr "Our values"
+msgstr ""
 
-#: page.php:360
+#: page.php:351
 msgid "Notre implantation"
-msgstr "Our office"
+msgstr ""
 
 #: templates/pages/page-about.twig:57
 msgid "Notre management"
-msgstr "Our management"
+msgstr ""
 
 #: templates/pages/page-home-version.twig:125
 #: templates/pages/page-home-version.twig:131
 msgid "Nous contacter"
-msgstr "Contact us"
+msgstr ""
 
 #: templates/pages/page-home-version.twig:116
 msgid "Nous rencontrer"
-msgstr "Meet us"
+msgstr ""
 
 #: templates/footer.twig:120
 msgid "ODDO BHF  Group © All rights reserved"
@@ -117,37 +114,37 @@ msgstr ""
 
 #: templates/components/version-selection.twig:32
 msgid "Pays"
-msgstr "Country"
+msgstr ""
 
 #: templates/footer.twig:86
 msgid "Pour toute information"
-msgstr "For any information request"
+msgstr ""
 
 #: templates/header.twig:75
 msgid "Présentation"
-msgstr "Presentation"
+msgstr ""
 
 #: templates/pages/page-home-version.twig:79
 msgid "Récompenses"
-msgstr "Awards"
+msgstr ""
 
 #: templates/components/version-selection.twig:52
-#: templates/pages/page-implantations.twig:101
+#: templates/pages/page-implantations.twig:87
 msgid "Suisse"
-msgstr "Switzerland"
+msgstr ""
 
 #: templates/components/version-selection.twig:37
 msgid "Sélectionnez un pays"
-msgstr "Select a country"
+msgstr ""
 
 #: templates/components/version-selection.twig:63
 msgid "Sélectionnez une langue"
-msgstr "Select a language"
+msgstr ""
 
 #. Description of the theme
 msgid "The best smooth, modern, and incredibly fast theme by Bemy"
 msgstr ""
 
-#: page.php:361
+#: page.php:352
 msgid "à"
-msgstr "in"
+msgstr ""

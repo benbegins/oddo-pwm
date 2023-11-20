@@ -4,13 +4,14 @@
     
     {% include "components/hero.twig" with {hero: post.meta('hero')} %}
 
-    <div class="min-h-screen flex items-center">
+    {# <div class="h-96 flex items-center">
     
         <div class="container">
-            <h1>Index : Hello World : PAGE</h1>
-            <p>Page version : {{ version }}</p>
+            <h1 class="uppercase font-bold">Page {{post.post_title}}</h1>
+            <p>Page version: {{ version }}</p>
+            <p>Page language: {{function('pll_current_language')}}</p>
         </div>
     
-    </div>
+    </div> #}
 
 {% endblock %}

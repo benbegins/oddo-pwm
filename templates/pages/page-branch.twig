@@ -2,11 +2,12 @@
 
 {% block content %}    
 
-    {% include "components/hero.twig" with { hero: branch.meta('hero').hero } %}
+    {% include "components/hero.twig" with { hero: hero_section } %}
 
     <section class="py-56 lg:py-80 lg:relative lg:z-10">
         <div class="container">
-            <h2 class="section-title">{{branch.name}}</h2>
+
+            <h2 class="section-title">{{city}}</h2>
 
             {% set infos = branch.meta('infos') %}
             <div class="mt-4 lg:mt-6 grid gap-4 md:grid-cols-2 md:gap-8 md:items-center">
@@ -17,7 +18,7 @@
                 {# right #}
                 <div class="lg:w-5/6 lg:ml-auto">
                     <div>
-                        <h3 class="text-lg lg:text-2xl font-baskerville">{{branch.name}}</h3>
+                        <h3 class="text-lg lg:text-2xl font-baskerville">{{city}}</h3>
                         <p>{{ infos.adress|nl2br }}</p>
                     </div>
                     <div class="mt-4 flex flex-col gap-1 lg:mt-6">
@@ -70,14 +71,23 @@
                 <ul class="swiper-wrapper">
                     {% for branch in other_branches %}
                         {% set infos = branch.meta('infos') %}
-                        <li class="swiper-slide">
+                        <li class="swiper-slide h-auto relative pb-14">
                             <div class="flex flex-col gap-6">
                                 <div class="img-container w-full aspect-portrait bg-black">
                                     {{ function('wp_get_attachment_image', infos.photo, "medium") }}
                                 </div>
-                                <h3 class="slide-title text-md lg:text-xl font-baskerville">{{ branch.name }}</h3>
+                                <h3 class="slide-title text-md lg:text-xl font-baskerville">
+                                    {% set lang = function('pll_current_language') %}
+                                    {% if lang == 'en' and branch.meta('name_en') %}
+                                        {{ branch.meta('name_en')}}
+                                    {% elseif lang == 'de' and branch.meta('name_de') %}
+                                        {{ branch.meta('name_de')}}
+                                    {% else %}
+                                        {{ branch.name }}
+                                    {% endif %}
+                                </h3>
                                 <p>{{ infos.adress }}</p>
-                                <div class="text-right">
+                                <div class="text-right absolute bottom-0 left-0 w-full">
                                     <a href="{{page_agences}}?branchname={{branch.slug}}" class="inline-block border border-rouge text-rouge rounded-full px-5 py-2 transition-colors duration-300 hover:bg-rouge hover:text-white">
                                         <span class="icon-arrow"></span>
                                     </a>

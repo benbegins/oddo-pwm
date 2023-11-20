@@ -58,10 +58,29 @@ function api_version(WP_REST_Request $request) {
     }
 
     // Get home page url for the version and lang
-    $page_accueil = get_the_permalink(pll_get_post(get_page_by_path($version)->ID, $lang));
-    if( ! $page_accueil ) {
+    $args = array(
+        'post_type' => 'page',
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'version',
+                'field' => 'slug',
+                'terms' => $version,
+            ),
+            array(
+                'taxonomy' => 'type-de-page',
+                'field' => 'slug',
+                'terms' => 'home',
+            ),
+        ),
+        'lang' => $lang,
+    );
+    $page_accueil_query = new WP_Query( $args );
+    if( ! $page_accueil_query->have_posts() ) {
         return new WP_Error( 'no_data', 'No data', array( 'status' => 404 ) );
     }
+    $page_accueil = get_the_permalink( $page_accueil_query->posts[0]->ID);
 
     // Return data
     $output = array(

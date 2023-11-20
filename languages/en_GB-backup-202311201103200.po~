@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 10:38+0000\n"
-"PO-Revision-Date: 2023-11-20 11:03+0000\n"
+"PO-Revision-Date: 2023-11-20 09:42+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (UK)\n"
 "Language: en_GB\n"
@@ -20,7 +20,7 @@ msgid "Agences"
 msgstr "Locations"
 
 #: templates/components/version-selection.twig:51
-#: templates/pages/page-implantations.twig:47
+#: templates/pages/page-implantations.twig:45
 msgid "Allemagne"
 msgstr "Germany"
 
@@ -28,7 +28,7 @@ msgstr "Germany"
 msgid "Application mobile ODDO BHF Banque Privée"
 msgstr "ODDO BHF Banque Privée’s app"
 
-#: templates/pages/page-branch.twig:58
+#: templates/pages/page-branch.twig:57
 msgid "Autres branches"
 msgstr "Other branches"
 
@@ -62,17 +62,13 @@ msgid "Espace Client"
 msgstr "Client login"
 
 #: templates/components/version-selection.twig:50
-#: templates/pages/page-implantations.twig:74
+#: templates/pages/page-implantations.twig:66
 msgid "France"
 msgstr ""
 
 #. Author URI of the theme
 msgid "https://bemy.studio"
 msgstr ""
-
-#: templates/pages/page-implantations.twig:39
-msgid "Implantations"
-msgstr "Locations"
 
 #: templates/components/version-selection.twig:58
 msgid "Langue"
@@ -90,7 +86,7 @@ msgstr "Our clients"
 msgid "Nos valeurs"
 msgstr "Our values"
 
-#: page.php:360
+#: page.php:351
 msgid "Notre implantation"
 msgstr "Our office"
 
@@ -132,7 +128,7 @@ msgid "Récompenses"
 msgstr "Awards"
 
 #: templates/components/version-selection.twig:52
-#: templates/pages/page-implantations.twig:101
+#: templates/pages/page-implantations.twig:87
 msgid "Suisse"
 msgstr "Switzerland"
 
@@ -148,6 +144,6 @@ msgstr "Select a language"
 msgid "The best smooth, modern, and incredibly fast theme by Bemy"
 msgstr ""
 
-#: page.php:361
+#: page.php:352
 msgid "à"
 msgstr "in"

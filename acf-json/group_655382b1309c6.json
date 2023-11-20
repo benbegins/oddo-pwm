@@ -3,26 +3,44 @@
     "title": "Branches",
     "fields": [
         {
-            "key": "field_65538d5d42a28",
-            "label": "Hero",
-            "name": "hero",
+            "key": "field_655b3362d8a95",
+            "label": "Name EN",
+            "name": "name_en",
             "aria-label": "",
-            "type": "clone",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "field_65439d8eca71e"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_655b336ed8a96",
+            "label": "Name DE",
+            "name": "name_de",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_655382b163d83",
@@ -245,5 +263,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1700038206
+    "modified": 1700475783
 }

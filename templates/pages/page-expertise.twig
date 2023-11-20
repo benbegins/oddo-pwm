@@ -18,7 +18,7 @@
 
             {# Section slider bloc text #}
             {% if section.acf_fc_layout == 'slider_bloc_text' %}
-                <section v-scope="Slider({slidesPerPage: 3})" class="py-56 lg:py-80">
+                <section v-scope="Slider({slidesPerPage: 3})" class="pt-56 lg:pt-80">
                     <div class="container">
                         <h2 class="section-title">{{ section.section_title }}</h2>
                         <h3 class="font-baskerville my-4 text-lg lg:text-2xl">{{ section.content_title }}</h3>
@@ -59,7 +59,7 @@
 
     {# Autre expertises #}
     {% if other_expertises %}
-        <section v-scope="Slider({ slidesPerPage: 1.35 })" class="relative bg-armerie py-56 lg:py-80">
+        <section v-scope="Slider({ slidesPerPage: 1.35 })" class="relative bg-armerie py-56 lg:py-80 mt-56 lg:mt-80">
             <div class="container relative z-10">
                 <h2 class="section-title white">{{ __('Autres expertises', 'bemy') }}</h2>
             </div>
@@ -84,7 +84,7 @@
                                         <h3 class="font-baskerville text-md lg:text-lg">
                                             {{expertise.post_title}}
                                         </h3>
-                                        <div>{{expertise.meta('section_presentation').content|excerpt(30)}}</div>
+                                        <div>{{expertise.meta('section_presentation').content|excerpt(50)}}</div>
                                         <a href="{{function('get_the_permalink', expertise.id)}}" class="btn-primary borderonly mt-2">{{ __('En savoir plus', 'bemy') }}</a>
                                     </div>
                                 </li>

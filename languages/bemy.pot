@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 10:38+0000\n"
+"POT-Creation-Date: 2023-11-20 11:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -21,15 +21,15 @@ msgid "Agences"
 msgstr ""
 
 #: templates/components/version-selection.twig:51
-#: templates/pages/page-implantations.twig:45
+#: templates/pages/page-implantations.twig:47
 msgid "Allemagne"
 msgstr ""
 
-#: templates/footer.twig:70
+#: templates/footer.twig:62
 msgid "Application mobile ODDO BHF Banque Privée"
 msgstr ""
 
-#: templates/pages/page-branch.twig:57
+#: templates/pages/page-branch.twig:58
 msgid "Autres branches"
 msgstr ""
 
@@ -42,15 +42,15 @@ msgstr ""
 msgid "Bemy"
 msgstr ""
 
-#: templates/pages/page-about.twig:116
+#: templates/pages/page-about.twig:115
 msgid "Chiffres clés"
 msgstr ""
 
-#: templates/header.twig:5 templates/footer.twig:108
+#: templates/header.twig:5 templates/footer.twig:88
 msgid "Contactez-nous"
 msgstr ""
 
-#: templates/footer.twig:42
+#: templates/footer.twig:36
 msgid "Documentation à télécharger"
 msgstr ""
 
@@ -63,12 +63,16 @@ msgid "Espace Client"
 msgstr ""
 
 #: templates/components/version-selection.twig:50
-#: templates/pages/page-implantations.twig:66
+#: templates/pages/page-implantations.twig:74
 msgid "France"
 msgstr ""
 
 #. Author URI of the theme
 msgid "https://bemy.studio"
+msgstr ""
+
+#: templates/pages/page-implantations.twig:39
+msgid "Implantations"
 msgstr ""
 
 #: templates/components/version-selection.twig:58
@@ -87,7 +91,11 @@ msgstr ""
 msgid "Nos valeurs"
 msgstr ""
 
-#: templates/pages/page-about.twig:58
+#: page.php:360
+msgid "Notre implantation"
+msgstr ""
+
+#: templates/pages/page-about.twig:57
 msgid "Notre management"
 msgstr ""
 
@@ -100,7 +108,7 @@ msgstr ""
 msgid "Nous rencontrer"
 msgstr ""
 
-#: templates/footer.twig:146
+#: templates/footer.twig:120
 msgid "ODDO BHF  Group © All rights reserved"
 msgstr ""
 
@@ -112,7 +120,7 @@ msgstr ""
 msgid "Pays"
 msgstr ""
 
-#: templates/footer.twig:106
+#: templates/footer.twig:86
 msgid "Pour toute information"
 msgstr ""
 
@@ -125,7 +133,7 @@ msgid "Récompenses"
 msgstr ""
 
 #: templates/components/version-selection.twig:52
-#: templates/pages/page-implantations.twig:87
+#: templates/pages/page-implantations.twig:101
 msgid "Suisse"
 msgstr ""
 
@@ -139,4 +147,8 @@ msgstr ""
 
 #. Description of the theme
 msgid "The best smooth, modern, and incredibly fast theme by Bemy"
+msgstr ""
+
+#: page.php:361
+msgid "à"
 msgstr ""

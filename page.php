@@ -32,20 +32,88 @@ if ($version){
             break;
     }
 }
+
+
+
 // Get home page version link
 $page_accueil = pll_home_url();
 if($context['version']){
-    $page_accueil = get_the_permalink(pll_get_post(get_page_by_path($context['version'])->ID));
+    $query_accueil = get_posts(array(
+        'post_type' => 'page',
+        'posts_per_page' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'type-de-page',
+                'field' => 'slug',
+                'terms' => 'home',
+            ),
+            array(
+                'taxonomy' => 'version',
+                'field' => 'slug',
+                'terms' => $context['version'],
+            ),
+        ),
+    ));
+
+    if($query_accueil){
+        $page_accueil = get_the_permalink(pll_get_post($query_accueil[0]->ID));
+    }
 }
 $context['home'] = $page_accueil;
 
+
+
 // Get page agences
-$page_agences = get_page_by_path( $context['version'] . '/agences');
+$page_agences = get_posts(array(
+    'post_type' => 'page',
+    'posts_per_page' => 1,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'type-de-page',
+            'field' => 'slug',
+            'terms' => 'implantations',
+        ),
+        array(
+            'taxonomy' => 'version',
+            'field' => 'slug',
+            'terms' => $context['version'],
+        ),
+    ),
+));
+
 if ($page_agences){
-    $context['page_agences'] = get_the_permalink(pll_get_post($page_agences->ID));
+    $context['page_agences'] = get_the_permalink(pll_get_post($page_agences[0]->ID));
 } else {
     $context['page_agences'] = $context['home'];
 }
+
+
+
+
+// Get page contact
+$page_contact = get_posts(array(
+    'post_type' => 'page',
+    'posts_per_page' => 1,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'type-de-page',
+            'field' => 'slug',
+            'terms' => 'contact',
+        ),
+        array(
+            'taxonomy' => 'version',
+            'field' => 'slug',
+            'terms' => $context['version'],
+        ),
+    ),
+));
+
+if ($page_contact){
+    $context['page_contact'] = get_the_permalink(pll_get_post($page_contact[0]->ID));
+} else {
+    $context['page_contact'] = $context['home'];
+}
+
 
 
 
@@ -68,12 +136,75 @@ if ($type_de_page){
  */
 if (is_front_page()) {
     $page_name = 'home';
+    $home_france = null;
+    $home_germany = null;
+    $home_switzerland = null;
 
-    $home_france = get_the_permalink(pll_get_post(get_page_by_path('france')->ID));
-    $home_germany = get_the_permalink(pll_get_post(get_page_by_path('germany')->ID));
-    $home_switzeland = get_the_permalink(pll_get_post(get_page_by_path('switzerland')->ID));
+    // Home Version France
+    $query_home_france = get_posts(array(
+        'post_type' => 'page',
+        'posts_per_page' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'type-de-page',
+                'field' => 'slug',
+                'terms' => 'home',
+            ),
+            array(
+                'taxonomy' => 'version',
+                'field' => 'slug',
+                'terms' => 'france',
+            ),
+        ),
+    ));
+    if($query_home_france){
+        $home_france = get_the_permalink(pll_get_post($query_home_france[0]->ID));
+    }
+
+    // Home Version Germany
+    $query_home_germany = get_posts(array(
+        'post_type' => 'page',
+        'posts_per_page' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'type-de-page',
+                'field' => 'slug',
+                'terms' => 'home',
+            ),
+            array(
+                'taxonomy' => 'version',
+                'field' => 'slug',
+                'terms' => 'germany',
+            ),
+        ),
+    ));
+    if($query_home_germany){
+        $home_germany = get_the_permalink(pll_get_post($query_home_germany[0]->ID));
+    }
+
+    // Home Version Switzerland
+    $query_home_switzerland = get_posts(array(
+        'post_type' => 'page',
+        'posts_per_page' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'type-de-page',
+                'field' => 'slug',
+                'terms' => 'home',
+            ),
+            array(
+                'taxonomy' => 'version',
+                'field' => 'slug',
+                'terms' => 'switzerland',
+            ),
+        ),
+    ));
+    if($query_home_switzerland){
+        $home_switzerland = get_the_permalink(pll_get_post($query_home_switzerland[0]->ID));
+    }
+
     // Get redirect page link for 3 versions
-    $context['redirect'] = $home_france . ',' . $home_germany . ',' . $home_switzeland;
+    $context['redirect'] = $home_france . ',' . $home_germany . ',' . $home_switzerland;
 }
 
 
@@ -91,6 +222,29 @@ if($type_de_page == 'home'){
  */
 if($type_de_page == 'about'){
     $page_name = 'about';
+
+    $page_manager = get_posts(array(
+        'post_type' => 'page',
+        'posts_per_page' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'type-de-page',
+                'field' => 'slug',
+                'terms' => 'manager',
+            ),
+            array(
+                'taxonomy' => 'version',
+                'field' => 'slug',
+                'terms' => $context['version'],
+            ),
+        ),
+    ));
+    
+    if ($page_manager){
+        $context['page_manager'] = get_the_permalink(pll_get_post($page_manager[0]->ID));
+    } else {
+        $context['page_manager'] = $context['home'];
+    }
 }
 
 
@@ -144,6 +298,11 @@ if($type_de_page == 'expertise'){
                 'field' => 'slug',
                 'terms' => 'expertise',
             ),
+            array(
+                'taxonomy' => 'version',
+                'field' => 'slug',
+                'terms' => $context['version'],
+            ),
         ),
     );
     $other_expertises = Timber::get_posts( $args );
@@ -186,12 +345,32 @@ if($type_de_page == 'implantations'){
             $page_name = 'branch';
             $context['branch'] = $branch_post[0];
 
+            // Header
+            $city_name = $branch_post[0]->post_title;
+            $current_lang = pll_current_language();
+            // Get the name of the city in the current language
+            if($current_lang == 'en' && get_field('name_en', $branch_post[0]->ID)){
+                $city_name = get_field('name_en', $branch_post[0]->ID);
+            } else if ($current_lang == 'de' && get_field('name_de', $branch_post[0]->ID)){
+                $city_name = get_field('name_de', $branch_post[0]->ID);
+            }
+                
+            $hero_section = array(
+                'page_title' => 'Private Wealth Management',
+                'catch_phrase_part_1' => __('Notre implantation', 'bemy'),
+                'catch_phrase_part_2' => __('à', 'bemy') . ' ' . $city_name,
+            );
+            $context['hero_section'] = $hero_section;
+            $context ['city'] = $city_name;
+
 
             // Other branches
             $args = array(
                 'post_type' => 'branch',
                 'posts_per_page' => -1,
                 'post__not_in' => array($branch_post[0]->ID),
+                'orderby' => 'name',
+                'order' => 'ASC',
             );
             $other_branches = Timber::get_posts( $args );
             if(!empty($other_branches)){
@@ -212,6 +391,8 @@ if($type_de_page == 'implantations'){
                     'terms' => 'france',
                 ),
             ),
+            'orderby' => 'name',
+            'order' => 'ASC',
         );
         $branches_france = Timber::get_posts( $args );
         if(!empty($branches_france)){
@@ -228,6 +409,8 @@ if($type_de_page == 'implantations'){
                     'terms' => 'germany',
                 ),
             ),
+            'orderby' => 'name',
+            'order' => 'ASC',
         );
         $branches_germany = Timber::get_posts( $args );
         if(!empty($branches_germany)){
@@ -244,6 +427,8 @@ if($type_de_page == 'implantations'){
                     'terms' => 'switzerland',
                 ),
             ),
+            'orderby' => 'name',
+            'order' => 'ASC',
         );
         $branches_switzerland = Timber::get_posts( $args );
         if(!empty($branches_switzerland)){
