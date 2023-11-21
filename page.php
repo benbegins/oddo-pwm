@@ -438,5 +438,25 @@ if($type_de_page == 'implantations'){
 }
 
 
+/**
+ * CONTACT PAGE
+ */
+if($type_de_page == 'contact'){
+    $page_name = 'contact';
+
+    $context['hero_light'] = true;
+
+    // Header
+    // $hero_section = array(
+    //     'page_title' => 'Private Wealth Management',
+    //     'catch_phrase_part_1' => __('Contactez-nous', 'bemy'),
+    // );
+    // $context['hero_section'] = $hero_section;
+
+    // Get the contact form
+    $context['contact_form'] = get_field('form', $timber_post->ID);
+}
+
+
 
 Timber::render( array( 'pages/page-' . $page_name . '.twig', 'pages/page.twig' ), $context );

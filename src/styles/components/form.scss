@@ -1,0 +1,150 @@
+.form-container {
+	.section-title.forminator-col {
+		padding-bottom: 1rem !important;
+		margin-top: 2.5rem !important;
+	}
+	.forminator- {
+		&row {
+			margin-bottom: 0.5rem !important;
+		}
+		&col {
+			margin-bottom: 0rem !important;
+		}
+		&input {
+			@apply border border-black w-full px-4 py-2.5;
+			&:focus {
+				@apply border-mint outline-none;
+			}
+		}
+		&textarea {
+			@apply border border-black w-full px-4 py-2.5;
+			&:focus {
+				@apply border-mint outline-none;
+			}
+		}
+		&label {
+			@apply block text-xs mb-1;
+		}
+		&error-message {
+			@apply text-xs text-rouge;
+		}
+		&checkbox {
+			@apply flex gap-2 items-center cursor-pointer;
+		}
+		&button-submit {
+			@apply mt-6;
+		}
+		&field-checkbox {
+			.forminator-field {
+				@apply flex flex-wrap gap-x-8 gap-y-2;
+
+				input[type="checkbox"] {
+					display: none;
+				}
+
+				/* Style the custom checkbox */
+				input[type="checkbox"] + .forminator-checkbox-box::before {
+					content: "";
+					@apply border border-black w-4 h-4 block;
+				}
+
+				/* Style the checked state */
+				input[type="checkbox"]:checked + .forminator-checkbox-box::before {
+					content: "";
+					@apply text-white bg-rouge;
+					// font-size: 12px;
+					// font-weight: bold;
+					// text-align: center;
+					// line-height: 12px;
+				}
+			}
+		}
+		&field-consent {
+			.forminator-checkbox__wrapper {
+				@apply flex gap-2 mt-8 mb-2;
+
+				input[type="checkbox"] {
+					display: none !important;
+				}
+
+				/* Style the custom checkbox */
+				input[type="checkbox"] + .forminator-checkbox-box::before {
+					content: "";
+					@apply border border-black w-4 h-4 block;
+				}
+
+				/* Style the checked state */
+				input[type="checkbox"]:checked + .forminator-checkbox-box::before {
+					content: "";
+					@apply text-white bg-rouge;
+					// font-size: 12px;
+					// font-weight: bold;
+					// text-align: center;
+					// line-height: 12px;
+				}
+			}
+		}
+	}
+
+	// .forminator-field {
+	// 	label {
+	// 		@apply text-xs inline-block mb-1;
+	// 	}
+	// 	input,
+	// 	textarea,
+	// 	select {
+	// 		@apply border border-black w-full px-4 py-2.5;
+	// 	}
+
+	// 	.forminator-error-message {
+	// 		@apply inline-block text-sm leading-none mt-1;
+	// 	}
+
+	// 	// Checkbox
+	// 	.forminator-checkbox__wrapper {
+	// 		display: grid;
+	// 		grid-template-columns: 25px 1fr;
+
+	// 		.forminator-checkbox {
+	// 			@apply flex text-sm leading-tight;
+	// 		}
+
+	// 		input[type="checkbox"] {
+	// 			display: none;
+	// 		}
+
+	// 		/* Style the custom checkbox */
+	// 		input[type="checkbox"] + .forminator-checkbox-box::before {
+	// 			content: "";
+	// 			display: inline-block;
+	// 			width: 12px;
+	// 			height: 12px;
+	// 			vertical-align: middle;
+	// 			border-radius: 3px;
+	// 		}
+
+	// 		/* Style the checked state */
+	// 		input[type="checkbox"]:checked + .forminator-checkbox-box::before {
+	// 			content: "\2713";
+	// 			// background: $light;
+	// 			// border-color: $light;
+	// 			// color: $pink;
+	// 			@apply text-white bg-mint;
+	// 			font-size: 12px;
+	// 			font-weight: bold;
+	// 			text-align: center;
+	// 			line-height: 12px;
+	// 		}
+	// 	}
+
+	// 	// Upload description
+	// 	.forminator-description {
+	// 		@apply text-sm italic opacity-50 block text-right mt-2;
+	// 	}
+
+	// 	// Submit
+	// 	.forminator-button-submit {
+	// 		@apply mt-6;
+	// 	}
+	// }
+}

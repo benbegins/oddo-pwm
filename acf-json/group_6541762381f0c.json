@@ -249,6 +249,26 @@
                     "parent_repeater": "field_65425e445b6ba"
                 }
             ]
+        },
+        {
+            "key": "field_655cb18abdcc8",
+            "label": "Link list",
+            "name": "link_list",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
@@ -269,5 +289,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1698853175
+    "modified": 1700573601
 }

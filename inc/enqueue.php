@@ -3,7 +3,7 @@
 if ( ! function_exists( 'bemy_scripts' ) ) {
 	function bemy_scripts() {
 
-		wp_deregister_script( 'jquery' );
+		// wp_deregister_script( 'jquery' );
 
 		// Style
 		wp_enqueue_style( 'bemy-css', get_template_directory_uri() . '/dist/style.css', array(), wp_get_theme()->get( 'Version' ) );
@@ -19,8 +19,6 @@ if ( ! function_exists( 'bemy_scripts' ) ) {
 		// Lato - light 200, regular 400, bold 700
 		// Libre Baskerville - regular 400, italic 400
 		wp_enqueue_style( 'vq-google-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Libre+Baskerville:ital@0;1&display=swap', array(), false );
-
-
 	}
 }
 add_action( 'wp_enqueue_scripts', 'bemy_scripts' );

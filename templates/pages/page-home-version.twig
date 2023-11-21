@@ -10,7 +10,7 @@
     {# Nos clients #}
     {% set clients = post.meta('clients').list_clients %}
     {% if clients %}
-    <section v-scope="Slider({slidesPerPage: 3})"  class="pb-56 lg:pb-80">
+    <section v-scope="Slider({slidesPerPage: 3})"  class="pt-56 lg:pt-80">
         <div class="container">
             <h2 class="section-title">{{ __('Nos clients', 'bemy') }}</h2>
         </div>
@@ -49,7 +49,7 @@
     {# Citation #}
     {% set citation = post.meta('section_citation') %}
     {% if citation %}
-    <section class="bg-vert py-56 lg:py-80">
+    <section class="bg-vert py-56 lg:py-80 mt-56 lg:mt-80">
         <div class="container">
             <div class="text-center max-w-3xl mx-auto">
                 <div class="relative p-8 lg:px-16">
@@ -74,7 +74,7 @@
     {# Awards #}
     {% set awards = post.meta('section_awards').list_awards %}
     {% if awards %}
-    <section v-scope="Slider({slidesPerPage: 4})" class="py-56 lg:py-80">
+    <section v-scope="Slider({slidesPerPage: 4})" class="pt-56 lg:pt-80">
         <div class="container">
             <h2 class="section-title">{{ __('Récompenses', 'bemy') }}</h2>
         </div>
@@ -111,7 +111,7 @@
     {# Meet us #}
     {% set meet_us = post.meta('section_meet_us') %}
     {% if meet_us %}
-    <section class="pb-56 lg:pb-80">
+    <section class="py-56 lg:py-80">
         <div class="container">
             <h2 class="section-title  mb-4 lg:mb-6">{{ __('Nous rencontrer', 'bemy') }}</h2>
             <div class="grid gap-8 md:gap-6 md:justify-items-start md:grid-cols-3 md:mb-6 lg:gap-8">

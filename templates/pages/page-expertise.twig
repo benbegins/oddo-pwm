@@ -51,6 +51,41 @@
                     </div>
                 </section>
             {% endif %}
+
+            {# Bloc Quinconce #}
+            {% if section.acf_fc_layout == 'bloc_quinconce' %}
+            <section class="pt-56 lg:pt-80">
+                <div class="container">
+                    <h2 class="section-title">{{ section.section_title }}</h2>
+
+                    <div class="grid gap-8 mt-4 md:gap-0 lg:mt-6">
+                        {% for index, item in section.items %}
+                            {% if index % 2 == 0 %}
+                                {% set odd = true %}
+                            {% else %}
+                                {% set odd = false %}
+                            {% endif %}
+                            <div class="flex flex-col-reverse md:grid gap-4 md:grid-cols-2 md:gap-0">
+                                <div class="md:py-80 md:row-start-1{% if odd %} md:col-start-2{% endif %}">
+                                    <div class="md:w-5/6{% if odd %} md:ml-auto{% endif %}">
+                                        <p class="text-lg lg:text-3xl font-light text-mint">0{{ index + 1 }}.</p>
+                                        <h3 class="text-lg lg:text-2xl font-baskerville">{{item.title}}</h3>
+                                        <div class="rich-text mt-4">
+                                            {{ item.content }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative md:row-start-1{% if odd %} md:col-start-1{% endif %}">
+                                    <div class="img-container w-full aspect-paysage bg-black md:absolute md:h-full">
+                                        {{ function('wp_get_attachment_image', item.visual, 'medium_large') }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
             
         {% endfor %}
     {% endif %}

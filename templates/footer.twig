@@ -31,7 +31,12 @@
                 </p>
             </div>
 
-            {% if options.documentation %}
+            {% set currentLang = function('pll_current_language') %}
+            {% if version == 'germany' and currentLang == 'de' %}
+                <div class="rich-text">
+                    {{ options.link_list }}
+                </div>            
+            {% elseif options.documentation %}
                 <div class="flex flex-col gap-4">
                     <h3 class="font-baskerville">{{ __('Documentation à télécharger', 'bemy') }}</h3>
                     {% for doc in options.documentation %}
