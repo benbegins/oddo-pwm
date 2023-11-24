@@ -446,17 +446,82 @@ if($type_de_page == 'contact'){
 
     $context['hero_light'] = true;
 
-    // Header
-    // $hero_section = array(
-    //     'page_title' => 'Private Wealth Management',
-    //     'catch_phrase_part_1' => __('Contactez-nous', 'bemy'),
-    // );
-    // $context['hero_section'] = $hero_section;
-
     // Get the contact form
     $context['contact_form'] = get_field('form', $timber_post->ID);
 }
 
+
+/**
+ * INITIATIVES
+ */
+if($type_de_page == 'initiatives'){
+    $page_name = 'initiatives';
+
+    $page_initiatives = get_posts(array(
+        'post_type' => 'page',
+        'posts_per_page' => 1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'type-de-page',
+                'field' => 'slug',
+                'terms' => 'initiatives',
+            ),
+            array(
+                'taxonomy' => 'version',
+                'field' => 'slug',
+                'terms' => $context['version'],
+            ),
+        ),
+    ));
+    
+    if ($page_initiatives){
+        $context['page_initiatives'] = get_the_permalink(pll_get_post($page_initiatives[0]->ID));
+    } else {
+        $context['page_initiatives'] = $context['home'];
+    }
+
+
+    if(isset($_GET['initiative-name'])){
+        $initiative = $_GET['initiative-name'];
+        $initiative = sanitize_text_field( $initiative );
+    
+        if(!$initiative){
+            wp_redirect( $context['home'] );
+            exit;
+        }
+    
+        $args = array(
+            'post_type' => 'initiative',
+            'name' => $initiative,
+        );
+        $initiative_post = Timber::get_posts( $args );
+    
+    
+        if(!$initiative_post) {
+            wp_redirect( $context['home'] );
+            exit;
+        }
+        
+        $page_name = 'single-initiative';
+        $context['post'] = $initiative_post[0];
+
+
+        // Other initiatives
+        $args = array(
+            'post_type' => 'initiative',
+            'posts_per_page' => -1,
+            'post__not_in' => array($initiative_post[0]->ID),
+            'orderby' => 'menu_order',
+            'order' => 'ASC',
+        );
+        $other_initiatives = Timber::get_posts( $args );
+        if(!empty($other_initiatives)){
+            $context['other_initiatives'] = $other_initiatives;
+        }
+    }
+
+    
+}
 
 
 Timber::render( array( 'pages/page-' . $page_name . '.twig', 'pages/page.twig' ), $context );

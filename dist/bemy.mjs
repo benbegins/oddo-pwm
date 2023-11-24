@@ -3258,7 +3258,7 @@ function En(e) {
     slider: null,
     // sliderContainer: null,
     // sliderLength: 0,
-    // sliderIndex: 0,
+    sliderIndex: 0,
     slidesPerPage: e.slidesPerPage ? e.slidesPerPage : 4,
     initSlider(t, i = !1, s = !1, n = !1) {
       const r = t.querySelector(".swiper"), l = t.querySelector(".swiper-button-prev"), o = t.querySelector(".swiper-button-next"), a = {
@@ -3277,7 +3277,9 @@ function En(e) {
           }
         }
       };
-      this.slider = new G(r, a), i && window.innerWidth >= 1024 && this.positionArrows(t), s && window.innerWidth > 640 && setTimeout(() => {
+      this.slider = new G(r, a), this.slider.on("slideChange", () => {
+        this.sliderIndex = this.slider.realIndex;
+      }), i && window.innerWidth >= 1024 && this.positionArrows(t), s && window.innerWidth > 640 && setTimeout(() => {
         this.setHeight(t);
       }, 1e3), window.addEventListener("resize", () => {
         i && window.innerWidth >= 1024 && this.positionArrows(t), s && window.innerWidth > 640 ? this.setHeight(t) : this.resetHeight(t);

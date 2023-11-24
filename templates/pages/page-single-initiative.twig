@@ -1,0 +1,88 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+    {% include "components/hero.twig" with {hero: post.meta('hero').hero} %}
+
+    {% include "components/presentation.twig" %}
+
+    {% set section_quinconce = post.meta('bloc_quinconce').bloc_quinconce %}
+    {% if section_quinconce %}
+        <section v-scope="Slider({slidesPerPage: 3})" class="pt-56 lg:pt-80">
+            <div class="container">
+                <h2 class="section-title">{{ section_quinconce.section_title }}</h2>
+
+                <div class="grid gap-8 mt-4 md:gap-0 lg:mt-6">
+                    {% for index, item in section_quinconce.items %}
+                        {% if index % 2 == 0 %}
+                            {% set odd = true %}
+                        {% else %}
+                            {% set odd = false %}
+                        {% endif %}
+                        <div class="flex flex-col-reverse md:grid gap-4 md:grid-cols-2 md:gap-0">
+                            <div class="md:py-80 md:row-start-1{% if odd %} md:col-start-2{% endif %}">
+                                <div class="md:w-5/6{% if odd %} md:ml-auto{% endif %}">
+                                    <p class="text-lg lg:text-3xl font-light text-mint">0{{ index + 1 }}.</p>
+                                    <h3 class="text-lg lg:text-2xl font-baskerville">{{item.title}}</h3>
+                                    <div class="rich-text mt-4">
+                                        {{ item.content }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="relative md:row-start-1{% if odd %} md:col-start-1{% endif %}">
+                                <div class="img-container w-full aspect-paysage bg-black md:absolute md:h-full">
+                                    {{ function('wp_get_attachment_image', item.visual, 'medium_large') }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+
+    {% set initiatives = other_initiatives %}
+    {% if initiatives %}
+        <section v-scope="Slider({slidesPerPage: 3})" class="py-56 lg:py-80">
+            <div class="container">
+                <h2 class="section-title">{{ __('ODDO BHF Initiatives', 'bemy') }}</h2>
+            </div>
+
+            <div @vue:mounted="initSlider($el, alignArrows = false, alignText = false)" class="slider-container mt-4 lg:mt-6">
+                <div class="slider-navigation-container container absolute inset-0">
+                    <button class="swiper-button swiper-button-prev">
+                        <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                    </button>
+                    <button class="swiper-button swiper-button-next">
+                        <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                    </button>
+                </div> 
+                <div class="swiper">
+                    <ul class="swiper-wrapper items-stretch">
+                        {% for initiative in initiatives %}
+                            {% if page_initiatives %}
+                                {% set link = function('add_query_arg', 'initiative-name', initiative.slug, page_initiatives) %}
+                                {% set initiative_url = function('esc_url', link) %}
+                            {% endif %}
+                            <li class="swiper-slide h-auto bg-armerie text-white" :class="{'lg:-mt-8 lg:-mb-8': slider && slider.slides[sliderIndex + 1] == $el}">
+                                <div class="img-container w-full aspect-paysage bg-black">
+                                    {{ function('get_the_post_thumbnail', initiative.id, 'medium') }}
+                                </div>
+                                <div class="flex flex-col gap-4 p-8 pb-20 lg:p-10 lg:pb-20">
+                                    <h3 class="font-baskerville text-md lg:text-lg">
+                                        {{ initiative.post_title }}
+                                    </h3>                                    
+                                    <div class="rich-text">{{ initiative.custom.bloc_quinconce_items_0_content|excerpt(30) }}</div>
+                                </div>
+                                <a href="{{initiative_url}}" class="inline underline hover:no-underline absolute bottom-8 left-8 lg:left-10">{{ __('En savoir plus', 'bemy') }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    
+
+{% endblock %}

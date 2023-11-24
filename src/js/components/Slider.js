@@ -7,7 +7,7 @@ function Slider(props) {
 		slider: null,
 		// sliderContainer: null,
 		// sliderLength: 0,
-		// sliderIndex: 0,
+		sliderIndex: 0,
 		slidesPerPage: props.slidesPerPage ? props.slidesPerPage : 4,
 
 		initSlider(el, alignArrows = false, alignText = false, center = false) {
@@ -33,6 +33,10 @@ function Slider(props) {
 			}
 
 			this.slider = new Swiper(sliderElement, sliderOptions)
+
+			this.slider.on("slideChange", () => {
+				this.sliderIndex = this.slider.realIndex
+			})
 
 			if (alignArrows && window.innerWidth >= 1024) {
 				this.positionArrows(el)

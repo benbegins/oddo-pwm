@@ -1,0 +1,52 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+    {% include "components/hero.twig" with {hero: post.meta('hero')} %}
+
+    {% set initiatives = post.meta('initiatives') %}
+    {% if initiatives %}
+        <section v-scope="Slider({slidesPerPage: 3})" class="py-56 lg:py-80">
+            <div class="container">
+                <h2 class="section-title">{{ __('ODDO BHF Initiatives', 'bemy') }}</h2>
+            </div>
+
+            <div @vue:mounted="initSlider($el, alignArrows = false, alignText = false)" class="slider-container mt-4 lg:mt-6">
+                <div class="slider-navigation-container container absolute inset-0">
+                    <button class="swiper-button swiper-button-prev">
+                        <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                    </button>
+                    <button class="swiper-button swiper-button-next">
+                        <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                    </button>
+                </div> 
+                <div class="swiper">
+                    <ul class="swiper-wrapper items-stretch">
+                        {% for index, initiative in initiatives %}
+                            {% if page_initiatives %}
+                                {% set link = function('add_query_arg', 'initiative-name', initiative.initiative.slug, page_initiatives) %}
+                                {% set initiative_url = function('esc_url', link) %}
+                            {% endif %}
+                            <li class="swiper-slide h-auto bg-armerie text-white" :class="{'lg:-mt-8 lg:-mb-8': slider && slider.slides[sliderIndex + 1] == $el}">
+                                <div class="img-container w-full aspect-paysage bg-black">
+                                    {{ function('get_the_post_thumbnail', initiative.initiative.id, 'medium') }}
+                                </div>
+                                <div class="flex flex-col gap-4 p-8 pb-20 lg:p-10 lg:pb-20">
+                                    <h3 class="font-baskerville text-md lg:text-lg">
+                                        {{ initiative.initiative.post_title }}
+                                    </h3>                                    
+                                    <div class="rich-text">{{ initiative.initiative.custom.bloc_quinconce_items_0_content|excerpt(30) }}</div>
+                                </div>
+                                <a href="{{initiative_url}}" class="inline underline hover:no-underline absolute bottom-8 left-8 lg:left-10">{{ __('En savoir plus', 'bemy') }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    
+
+    
+
+{% endblock %}
