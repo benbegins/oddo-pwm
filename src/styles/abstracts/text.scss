@@ -31,3 +31,9 @@
 		}
 	}
 }
+
+.red_links {
+	a {
+		@apply text-rouge;
+	}
+}

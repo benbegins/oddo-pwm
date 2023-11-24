@@ -47,7 +47,7 @@
 			& > li {
 				& > a,
 				button {
-					@apply block relative py-2.5;
+					@apply block relative py-2.5 lg:py-2;
 
 					@media screen and (min-width: 1024px) {
 						&::after {
@@ -58,6 +58,17 @@
 
 						&:hover::after {
 							@apply scale-x-100;
+						}
+					}
+				}
+				&.current-menu-item,
+				&.current-menu-parent {
+					& > a,
+					& > button {
+						@media screen and (min-width: 1024px) {
+							&::after {
+								@apply scale-x-100;
+							}
 						}
 					}
 				}

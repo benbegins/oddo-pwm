@@ -52,6 +52,43 @@
                 </section>
             {% endif %}
 
+
+            {# Slider text #}
+            {% if section.acf_fc_layout == 'slider_text' %}
+                <section v-scope="Slider({slidesPerPage: 2.5})" class="pt-56 lg:pt-80">
+                    <div class="container">
+                        <h2 class="section-title">{{ section.slider_text.section_title }}</h2>
+                    </div>
+
+                    <div @vue:mounted="initSlider($el, alignArrows = false, alignText = false)" class="slider-container mt-4 lg:mt-6">
+                        <div class="slider-navigation-container container absolute inset-0">
+                            <button class="swiper-button swiper-button-prev">
+                                <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                            </button>
+                            <button class="swiper-button swiper-button-next">
+                                <img src="{{function('get_template_directory_uri')}}/src/images/icons/icon-slider-arrow.svg" alt="arrow icon" width="11">
+                            </button>
+                        </div> 
+                        <div class="swiper">
+                            <ul class="swiper-wrapper">
+                                {% for index, item in section.slider_text.items %}
+                                    <li class="swiper-slide">
+                                        <div class="flex flex-col gap-4">
+                                            <h3 class="slide-title font-baskerville text-lg lg:text-2xl">
+                                                <span class="font-lato text-rouge text-sm uppercase font-bold">0{{index + 1}}.</span>
+                                                {{item.title}}
+                                            </h3>
+                                            <p>{{item.content}}</p>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+
+
             {# Bloc Quinconce #}
             {% if section.acf_fc_layout == 'bloc_quinconce' %}
             <section class="pt-56 lg:pt-80">
