@@ -34,8 +34,10 @@
                                 <div class="flex flex-col gap-4 p-8 pb-20 lg:p-10 lg:pb-20">
                                     <h3 class="font-baskerville text-md lg:text-lg">
                                         {{ initiative.initiative.post_title }}
-                                    </h3>                                    
-                                    <div class="rich-text">{{ initiative.initiative.custom.bloc_quinconce_items_0_content|excerpt(30) }}</div>
+                                    </h3>                       
+                                    {% if initiative.initiative.custom.section_presentation_content %}
+                                        <div class="rich-text">{{ initiative.initiative.custom.section_presentation_content|excerpt(30) }}</div>
+                                    {% endif %}
                                 </div>
                                 <a href="{{initiative_url}}" class="inline underline hover:no-underline absolute bottom-8 left-8 lg:left-10">{{ __('En savoir plus', 'bemy') }}</a>
                             </li>
