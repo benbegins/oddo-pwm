@@ -69,31 +69,36 @@
             </div> 
             <div class="swiper">
                 <ul class="swiper-wrapper">
+                    {% set current_pays = branch.terms('pays')[0].slug %}
                     {% for branch in other_branches %}
-                        {% set infos = branch.meta('infos') %}
-                        <li class="swiper-slide h-auto relative pb-14">
-                            <div class="flex flex-col gap-6">
-                                <div class="img-container w-full aspect-portrait bg-black">
-                                    {{ function('wp_get_attachment_image', infos.photo, "medium_large") }}
+                        {# Display only branches from the same country #}
+                        {% if branch.terms('pays')[0].slug == current_pays %}
+                            {% set infos = branch.meta('infos') %}
+                            <li class="swiper-slide h-auto relative pb-14">
+                                <div class="flex flex-col gap-6">
+                                    <div class="img-container w-full aspect-portrait bg-black">
+                                        {{ function('wp_get_attachment_image', infos.photo, "medium_large") }}
+                                    </div>
+                                    <h3 class="slide-title text-md lg:text-xl font-baskerville">
+                                        {% set lang = function('pll_current_language') %}
+                                        {% if lang == 'en' and branch.meta('name_en') %}
+                                            {{ branch.meta('name_en')}}
+                                        {% elseif lang == 'de' and branch.meta('name_de') %}
+                                            {{ branch.meta('name_de')}}
+                                        {% else %}
+                                            {{ branch.name }}
+                                        {% endif %}
+                                    </h3>
+                                    <p>{{ infos.adress }}</p>
+                                    <div class="text-right absolute bottom-0 left-0 w-full">
+                                        <a href="{{page_agences}}?branchname={{branch.slug}}" class="inline-block border border-rouge text-rouge rounded-full px-5 py-2 transition-colors duration-300 hover:bg-rouge hover:text-white">
+                                            <span class="icon-arrow"></span>
+                                        </a>
+                                    </div>
                                 </div>
-                                <h3 class="slide-title text-md lg:text-xl font-baskerville">
-                                    {% set lang = function('pll_current_language') %}
-                                    {% if lang == 'en' and branch.meta('name_en') %}
-                                        {{ branch.meta('name_en')}}
-                                    {% elseif lang == 'de' and branch.meta('name_de') %}
-                                        {{ branch.meta('name_de')}}
-                                    {% else %}
-                                        {{ branch.name }}
-                                    {% endif %}
-                                </h3>
-                                <p>{{ infos.adress }}</p>
-                                <div class="text-right absolute bottom-0 left-0 w-full">
-                                    <a href="{{page_agences}}?branchname={{branch.slug}}" class="inline-block border border-rouge text-rouge rounded-full px-5 py-2 transition-colors duration-300 hover:bg-rouge hover:text-white">
-                                        <span class="icon-arrow"></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        {% endif %}
+                        
                     {% endfor %}
                 </ul>
             </div>
