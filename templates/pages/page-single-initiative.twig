@@ -67,7 +67,7 @@
                             {% endif %}
                             <li class="swiper-slide h-auto bg-armerie text-white" :class="{'lg:-mt-8 lg:-mb-8': slider && slider.slides[sliderIndex + 1] == $el}">
                                 <div class="img-container w-full aspect-paysage bg-black">
-                                    {{ function('get_the_post_thumbnail', initiative.id, 'medium') }}
+                                    {{ function('get_the_post_thumbnail', initiative.id, 'medium_large') }}
                                 </div>
                                 <div class="flex flex-col gap-4 p-8 pb-20 lg:p-10 lg:pb-20">
                                     <h3 class="font-baskerville text-md lg:text-lg">
