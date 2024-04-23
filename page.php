@@ -33,7 +33,8 @@ if ($version){
     }
 }
 
-
+// Get the footer menu
+$context['footer_menu'] = new \Timber\Menu( 'footer' );
 
 // Get home page version link
 $page_accueil = pll_home_url();

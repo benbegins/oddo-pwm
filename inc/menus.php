@@ -5,6 +5,7 @@ function bemy_set_menus() {
         'menu-france' => 'Menu France',
         'menu-germany' => 'Menu Germany',
         'menu-switzerland' => 'Menu Switzerland',
+        'footer' => 'Footer',
     ) );
     // see https://developer.wordpress.org/reference/functions/register_nav_menus/
 }

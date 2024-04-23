@@ -121,8 +121,17 @@
     </div>
 
     <div class="border-t border-white border-opacity-25 py-4">
-        <div class="container">
-            <p class="text-xs">{{ __('ODDO BHF  Group © All rights reserved', 'bemy') }}</p>
+        <div class="container lg:flex lg:justify-between gap-4">
+            <p class="text-xs flex-shrink-0">{{ __('ODDO BHF  Group © All rights reserved', 'bemy') }}</p>
+            {% if footer_menu %}
+                <ul class="md:flex gap-x-4 flex-wrap">
+                    {% for item in footer_menu.items %}
+                        <li>
+                            <a href="{{item.url}}" {% if item.target %}target="{{item.target}}" {% endif %}class="text-xs hover:underline">{{item.title}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
     </div>
 </footer>
