@@ -1,14 +1,14 @@
 {% if hero.page_title %}
-<section class="lg:bg-armerie lg:relative{% if not hero.visual %} lg:-mb-40{% endif %}">
-    {% if hero.visual %}
+<section class="lg:bg-armerie lg:relative{% if not post.thumbnail.id %} lg:-mb-40{% endif %}">
+    {% if post.thumbnail.id %}
         <div class="img-container relative aspect-square sm:aspect-video lg:aspect-auto lg:absolute lg:z-0 lg:inset-0 lg:overflow-hidden">
-            {{ function('wp_get_attachment_image', hero.visual.id, "1536x1536", false, {'loading': false}) }}
+            {{ function('wp_get_attachment_image', post.thumbnail.id, "1536x1536", false, {'loading': false}) }}
             <div class="lg:hidden absolute z-10 inset-0 bg-[#000000] opacity-30"></div>
         </div>
         <div class="hidden lg:block absolute z-10 inset-0 bg-[#000000] opacity-30"></div>
     {% endif %}
     
-    <div class="container mt-6 lg:relative lg:z-20 lg:text-white lg:py-80 lg:min-h-[85vh] lg:flex lg:flex-col lg:justify-center{% if not hero.visual %} lg:pb-40{% endif %}">
+    <div class="container mt-6 lg:relative lg:z-20 lg:text-white lg:py-80 lg:min-h-[85vh] lg:flex lg:flex-col lg:justify-center{% if not post.thumbnail.id %} lg:pb-40{% endif %}">
 
         <h1 class="font-bold uppercase text-sm flex items-center gap-4 lg:text-base">
             <div class="h-px w-8 bg-black lg:w-12 lg:bg-white"></div>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        {% if hero.visual %}
+        {% if post.thumbnail.id %}
         <div class="hidden lg:block absolute bottom-0 right-6 rotate-90 origin-bottom-right -translate-x-[20%]">
             <div class="text-white uppercase tracking-widest text-xs relative inline-block">
                 <div class="relative py-1 inline-block after:block after:absolute after:h-px after:w-full after:bg-white after:top-full after:left-0">Scroll</div>
@@ -32,7 +32,7 @@
         {% endif %}
     </div>
 
-    {% if not hero.visual %}
+    {% if not post.thumbnail.id %}
     <div class="container-xl absolute w-full bottom-0 left-1/2 -translate-x-1/2 px-6 hidden lg:block">
         <div class=" h-40  bg-white"></div>
     </div>
