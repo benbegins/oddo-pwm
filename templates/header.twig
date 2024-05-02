@@ -82,17 +82,17 @@
                             </button>
                             <ul id="submenu-group" class="site-header__submenu" aria-hidden="true" @mouseLeave="toggleSubmenu($el.previousElementSibling)">
                                 <li>
-                                    <a href="" target="_blank">{{ __('Présentation', 'bemy') }}</a>
+                                    <a href="https://www.oddo-bhf.com/" target="_blank">{{ __('Présentation', 'bemy') }}</a>
                                 </li>
                                 <li>
-                                    <a href="" target="_blank">{{ __('News', 'bemy') }}</a>
+                                    <a href="https://www.oddo-bhf.com/fr/news" target="_blank">{{ __('News', 'bemy') }}</a>
                                 </li>
                             </ul>
                         </li>
     
                     </ul>
                 {% endif %}
-                <a href="" class="site-header__espace-client inline-block px-5 pt-1 pb-1.5 border border-black mt-3 lg:mt-0 lg:border-white rounded-full lg:transition-colors lg:duration-300 hover:bg-rouge hover:border-rouge">{{ __('Espace Client', 'bemy') }}</a>
+                <a href="https://my-de.oddo-bhf.com/private" target="_blank" class="site-header__espace-client inline-block px-5 pt-1 pb-1.5 border border-black mt-3 lg:mt-0 lg:border-white rounded-full lg:transition-colors lg:duration-300 hover:bg-rouge hover:border-rouge">{{ __('Espace Client', 'bemy') }}</a>
             </nav>
             <div class="pointer-events-none fixed bg-black inset-0 z-0 transition-opacity duration-500 lg:hidden" :class="[menuOpen ? 'opacity-50' : 'opacity-0']"></div>
         </div>
