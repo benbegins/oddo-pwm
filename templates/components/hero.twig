@@ -1,9 +1,14 @@
 {% if hero.page_title %}
-<section class="lg:bg-armerie lg:relative{% if not post.thumbnail.id %} lg:-mb-40{% endif %}">
+<section class="lg:bg-armerie relative{% if not post.thumbnail.id %} lg:-mb-40{% endif %}">
     {% if post.thumbnail.id %}
         <div class="img-container relative aspect-square sm:aspect-video lg:aspect-auto lg:absolute lg:z-0 lg:inset-0 lg:overflow-hidden">
             {{ function('wp_get_attachment_image', post.thumbnail.id, "1536x1536", false, {'loading': false}) }}
             <div class="lg:hidden absolute z-10 inset-0 bg-[#000000] opacity-30"></div>
+
+            {# Credit #}
+            {% if post.thumbnail.post_excerpt %}
+                <div class="absolute bottom-2 left-6 text-white text-2xs">{{ post.thumbnail.post_excerpt }}</div>
+            {% endif %}
         </div>
         <div class="hidden lg:block absolute z-10 inset-0 bg-[#000000] opacity-30"></div>
     {% endif %}
