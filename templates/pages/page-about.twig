@@ -121,6 +121,10 @@
                     <div>
                         <h3 class="font-baskerville text-2xl lg:text-4xl">{{chiffre.chiffre}}</h3>
                         <p class="font-light lg:text-lg">{{chiffre.description}}</p>
+                        {% if chiffre.mention %}
+                            <p class="text-xs">{{ chiffre.mention }}</p>
+                        {% endif %}
+                        
                     </div>
                 </li>
             {% endfor %}

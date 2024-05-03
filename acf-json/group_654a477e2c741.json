@@ -285,6 +285,27 @@
                     "placeholder": "",
                     "new_lines": "br",
                     "parent_repeater": "field_654a486b3f3b3"
+                },
+                {
+                    "key": "field_6634b7e655d5b",
+                    "label": "Mention",
+                    "name": "mention",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_654a486b3f3b3"
                 }
             ]
         }
@@ -307,5 +328,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1700225058
+    "modified": 1714730997
 }
