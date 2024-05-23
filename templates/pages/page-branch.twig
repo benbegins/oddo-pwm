@@ -89,7 +89,7 @@
                                             {{ branch.name }}
                                         {% endif %}
                                     </h3>
-                                    <p>{{ infos.adress }}</p>
+                                    <p>{{ infos.adress|nl2br }}</p>
                                     <div class="text-right absolute bottom-0 left-0 w-full">
                                         <a href="{{page_agences}}?branchname={{branch.slug}}" class="inline-block border border-rouge text-rouge rounded-full px-5 py-2 transition-colors duration-300 hover:bg-rouge hover:text-white">
                                             <span class="icon-arrow"></span>
