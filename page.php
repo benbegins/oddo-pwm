@@ -481,7 +481,7 @@ if($type_de_page == 'initiatives'){
         $context['page_initiatives'] = $context['home'];
     }
 
-
+    // Single initiative
     if(isset($_GET['initiative-name'])){
         $initiative = $_GET['initiative-name'];
         $initiative = sanitize_text_field( $initiative );
@@ -505,13 +505,24 @@ if($type_de_page == 'initiatives'){
         
         $page_name = 'single-initiative';
         $context['post'] = $initiative_post[0];
+        
+        // Get field "initiatives" from the current page to get the selected initiatives
+        $other_initiatives_ids = get_field('initiatives', $timber_post->ID);
+        if($other_initiatives_ids){
+            $other_initiatives_ids = array_map(function($initiative){
+                return $initiative['initiative']->ID;
+            }, $other_initiatives_ids);
+        }
+        // Remove current initiative from the list
+        $other_initiatives_ids = array_diff($other_initiatives_ids, array($initiative_post[0]->ID));
 
 
         // Other initiatives
         $args = array(
             'post_type' => 'initiative',
             'posts_per_page' => -1,
-            'post__not_in' => array($initiative_post[0]->ID),
+            // 'post__not_in' => array($initiative_post[0]->ID),
+            'post__in' => $other_initiatives_ids,
             'orderby' => 'menu_order',
             'order' => 'ASC',
         );
