@@ -11,7 +11,7 @@ function VersionSelection() {
 		},
 		versionsAvailable: {
 			france: ["fr", "en"],
-			germany: ["de", "fr"],
+			germany: ["de", "en"],
 			switzerland: ["fr", "de", "en"],
 		},
 		languagesAvailable: [],
