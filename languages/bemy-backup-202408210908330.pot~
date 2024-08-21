@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-21 09:09+0000\n"
+"POT-Creation-Date: 2023-11-20 11:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -20,12 +20,12 @@ msgstr ""
 msgid "Agences"
 msgstr ""
 
-#: templates/footer.twig:18 templates/components/version-selection.twig:51
+#: templates/components/version-selection.twig:51
 #: templates/pages/page-implantations.twig:47
 msgid "Allemagne"
 msgstr ""
 
-#: templates/footer.twig:67
+#: templates/footer.twig:62
 msgid "Application mobile ODDO BHF Banque Privée"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Autres branches"
 msgstr ""
 
-#: templates/pages/page-expertise.twig:136
+#: templates/pages/page-expertise.twig:64
 msgid "Autres expertises"
 msgstr ""
 
@@ -46,26 +46,23 @@ msgstr ""
 msgid "Chiffres clés"
 msgstr ""
 
-#: templates/header.twig:5 templates/footer.twig:93
-#: templates/pages/page-contact.twig:8
+#: templates/header.twig:5 templates/footer.twig:88
 msgid "Contactez-nous"
 msgstr ""
 
-#: templates/footer.twig:41
+#: templates/footer.twig:36
 msgid "Documentation à télécharger"
 msgstr ""
 
-#: templates/pages/page-expertise.twig:160
-#: templates/pages/page-single-initiative.twig:78
-#: templates/pages/page-initiatives.twig:42
+#: templates/pages/page-expertise.twig:88
 msgid "En savoir plus"
 msgstr ""
 
-#: templates/header.twig:95
+#: templates/header.twig:85
 msgid "Espace Client"
 msgstr ""
 
-#: templates/footer.twig:9 templates/components/version-selection.twig:50
+#: templates/components/version-selection.twig:50
 #: templates/pages/page-implantations.twig:74
 msgid "France"
 msgstr ""
@@ -82,7 +79,7 @@ msgstr ""
 msgid "Langue"
 msgstr ""
 
-#: templates/header.twig:88
+#: templates/header.twig:78
 msgid "News"
 msgstr ""
 
@@ -94,7 +91,7 @@ msgstr ""
 msgid "Nos valeurs"
 msgstr ""
 
-#: page.php:361
+#: page.php:360
 msgid "Notre implantation"
 msgstr ""
 
@@ -111,28 +108,23 @@ msgstr ""
 msgid "Nous rencontrer"
 msgstr ""
 
-#: templates/footer.twig:125
+#: templates/footer.twig:120
 msgid "ODDO BHF  Group © All rights reserved"
 msgstr ""
 
-#: templates/header.twig:75
+#: templates/header.twig:65
 msgid "ODDO BHF Group"
-msgstr ""
-
-#: templates/pages/page-single-initiative.twig:49
-#: templates/pages/page-initiatives.twig:11
-msgid "ODDO BHF Initiatives"
 msgstr ""
 
 #: templates/components/version-selection.twig:32
 msgid "Pays"
 msgstr ""
 
-#: templates/footer.twig:91
+#: templates/footer.twig:86
 msgid "Pour toute information"
 msgstr ""
 
-#: templates/header.twig:85
+#: templates/header.twig:75
 msgid "Présentation"
 msgstr ""
 
@@ -140,7 +132,7 @@ msgstr ""
 msgid "Récompenses"
 msgstr ""
 
-#: templates/footer.twig:27 templates/components/version-selection.twig:52
+#: templates/components/version-selection.twig:52
 #: templates/pages/page-implantations.twig:101
 msgid "Suisse"
 msgstr ""
@@ -157,6 +149,6 @@ msgstr ""
 msgid "The best smooth, modern, and incredibly fast theme by Bemy"
 msgstr ""
 
-#: page.php:362
+#: page.php:361
 msgid "à"
 msgstr ""
