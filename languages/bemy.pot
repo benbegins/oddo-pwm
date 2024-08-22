@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-21 09:09+0000\n"
+"POT-Creation-Date: 2024-08-21 11:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -43,7 +43,7 @@ msgid "Bemy"
 msgstr ""
 
 #: templates/pages/page-about.twig:115
-msgid "Chiffres clés"
+msgid "Chiffres clés Banque Privée"
 msgstr ""
 
 #: templates/header.twig:5 templates/footer.twig:93

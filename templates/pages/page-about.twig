@@ -109,12 +109,14 @@
     {# Chiffres #}
     {% set chiffres = post.meta('chiffres_cles') %}
     {% if chiffres %}
-    <section class="section-chiffres-cles bg-greige">
+    <section class="section-chiffres-cles relative bg-greige">
+        {# Titre #}
         <div class="container">
             <div class="md:absolute pt-56 lg:pt-80">
-                <div class="section-title black">{{ __('Chiffres clés', 'bemy') }}</div>
+                <div class="section-title black">{{ __('Chiffres clés Banque Privée', 'bemy') }}</div>
             </div>
         </div>
+        {# Chiffres #}
         <ul class="section-chiffres-cles__list text-mint">
             {% for chiffre in chiffres %}
                 <li class="section-chiffres-cles__item">
@@ -124,12 +126,18 @@
                         {% if chiffre.mention %}
                             <p class="text-xs">{{ chiffre.mention }}</p>
                         {% endif %}
-                        
                     </div>
                 </li>
             {% endfor %}
         </ul>
-
+        {# Rapport annuel #}
+        {% if post.meta('report') %}
+        <div class="container section-chiffres-cles__report">
+            <div class="md:absolute md:bottom-0 md:-ml-6 py-56 lg:pb-80">
+                <a href="{{post.meta('report')}}" target="_blank" class="btn-primary">{{ __('Rapport annuel', 'bemy') }}</a>
+            </div>
+        </div>
+        {% endif %}
     </section>
     {% endif %}
 

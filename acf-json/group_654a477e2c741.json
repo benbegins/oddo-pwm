@@ -308,6 +308,26 @@
                     "parent_repeater": "field_654a486b3f3b3"
                 }
             ]
+        },
+        {
+            "key": "field_66c6e803c09fe",
+            "label": "Rapport annuel",
+            "name": "report",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -328,5 +348,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1714730997
+    "modified": 1724312636
 }

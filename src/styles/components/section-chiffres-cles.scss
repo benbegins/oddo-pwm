@@ -21,4 +21,9 @@
 			@apply md:text-center;
 		}
 	}
+
+	&__report {
+		@apply border-t md:border-none;
+		border-color: var(--border-color);
+	}
 }
