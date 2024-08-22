@@ -32,15 +32,40 @@
             </div>
 
             {% set currentLang = function('pll_current_language') %}
+
+            {# Germany DE version #}
             {% if version == 'germany' and currentLang == 'de' %}
                 <div class="rich-text">
                     {{ options.link_list }}
-                </div>            
+                </div>
+
+            {# Switzerland Version #}
+            {% elseif version == 'switzerland' and options.switzerland_documentation %}
+                <div class="flex flex-col gap-4">
+                    <h3 class="font-baskerville">{{ __('Documentation à télécharger', 'bemy') }}</h3>
+                    {% for doc in options.switzerland_documentation %}
+                        <a href="{{doc.document}}" class="flex items-start gap-2" target="_blank">
+                            <span class="icon-download text-xs mt-2"></span>
+                            <span class="hover:underline">
+                                {% set currentLang = function('pll_current_language') %}
+                                {% if currentLang == 'fr' %}
+                                    {{ doc.titre_fr}}
+                                {% elseif currentLang == 'en' %}
+                                    {{ doc.titre_en}}
+                                {% elseif currentLang == 'de' %}
+                                    {{ doc.titre_de}}
+                                {% endif %}
+                            </span>
+                        </a>
+                    {% endfor %}
+                </div> 
+
+            {# Other versions #}
             {% elseif options.documentation %}
                 <div class="flex flex-col gap-4">
                     <h3 class="font-baskerville">{{ __('Documentation à télécharger', 'bemy') }}</h3>
                     {% for doc in options.documentation %}
-                        <a href="{{doc.document}}" class="flex items-start gap-2">
+                        <a href="{{doc.document}}" class="flex items-start gap-2" target="_blank">
                             <span class="icon-download text-xs mt-2"></span>
                             <span class="hover:underline">
                                 {% set currentLang = function('pll_current_language') %}

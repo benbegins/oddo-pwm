@@ -268,6 +268,114 @@
             ]
         },
         {
+            "key": "field_66c749fb88b6c",
+            "label": "Documentation Suisse",
+            "name": "switzerland_documentation",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 3,
+            "collapsed": "",
+            "button_label": "Ajouter un document",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_66c749fb88b6d",
+                    "label": "Titre FR",
+                    "name": "titre_fr",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_66c749fb88b6c"
+                },
+                {
+                    "key": "field_66c749fb88b6e",
+                    "label": "Titre EN",
+                    "name": "titre_en",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_66c749fb88b6c"
+                },
+                {
+                    "key": "field_66c749fb88b6f",
+                    "label": "Titre DE",
+                    "name": "titre_de",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_66c749fb88b6c"
+                },
+                {
+                    "key": "field_66c749fb88b70",
+                    "label": "Document",
+                    "name": "document",
+                    "aria-label": "",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": "pdf",
+                    "parent_repeater": "field_66c749fb88b6c"
+                }
+            ]
+        },
+        {
             "key": "field_655cb18abdcc8",
             "label": "Link list",
             "name": "link_list",
@@ -375,5 +483,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724334981
+    "modified": 1724336666
 }
