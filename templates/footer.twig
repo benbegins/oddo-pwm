@@ -24,7 +24,7 @@
 
             <div class="flex flex-col gap-4">
                 <h3 class="font-baskerville">ODDO BHF (Schweiz) AG</h3>
-                <p>Gartenstraße 14 <br>8002 Zürich <br><span class="uppercase">{{ __('Suisse', 'bemy') }}</span></p>
+                <p>Gartenstra{% if version == "switzerland" %}ss{% else %}ß{% endif %}e 14 <br>8002 Zürich <br><span class="uppercase">{{ __('Suisse', 'bemy') }}</span></p>
                 <p class="flex items-center gap-2">
                     <span class="icon-phone text-xs"></span> 
                     <span>+41 44 209 75 11</span>
