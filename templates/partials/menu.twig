@@ -12,7 +12,7 @@
                     </svg>
                 </button>
                 <ul id="submenu-{{item.slug}}" class="site-header__submenu" aria-hidden="true">
-                    {% include "partials/menu.twig" with {'items': item.children} %}
+                    {% include "partials/menu.twig" with {'items': item.children|sort((a,b) => a.title <=> b.title)} %}
                 </ul>
             {% else %}
                 <a href="{{ item.link }}">{{ item.title }}</a>
