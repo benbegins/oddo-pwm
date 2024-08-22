@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 10:38+0000\n"
-"PO-Revision-Date: 2024-08-22 07:53+0000\n"
+"PO-Revision-Date: 2024-08-21 11:22+0000\n"
 "Last-Translator: \n"
-"Language-Team: German\n"
-"Language: de_DE\n"
+"Language-Team: English (UK)\n"
+"Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,57 +17,57 @@ msgstr ""
 
 #: templates/header.twig:6
 msgid "Agences"
-msgstr "Standorte"
+msgstr "Locations"
 
 #: templates/footer.twig:18 templates/components/version-selection.twig:51
 #: templates/pages/page-implantations.twig:47
 msgid "Allemagne"
-msgstr "Deutschland"
+msgstr "Germany"
 
 #: templates/footer.twig:67
 msgid "Application mobile ODDO BHF Banque Privée"
-msgstr "Mobile Anwendung der ODDO BHF Private Bank"
+msgstr "ODDO BHF Banque Privée’s app"
 
 #: templates/pages/page-branch.twig:58
 msgid "Autres branches"
-msgstr "Andere Branchen"
+msgstr "Other branches"
 
 #: templates/pages/page-expertise.twig:136
 msgid "Autres expertises"
-msgstr "Dienstleistungen"
+msgstr "Other expertises"
 
 #. Name of the theme
 #. Author of the theme
 msgid "Bemy"
 msgstr ""
 
-#: templates/pages/page-about.twig:116
+#: templates/pages/page-about.twig:115
 msgid "Chiffres clés Banque Privée"
-msgstr "KENNZAHLEN PRIVATE WEALTH MANAGEMENT"
+msgstr "Key figures Private Wealth Management"
 
 #: templates/header.twig:5 templates/footer.twig:93
 #: templates/pages/page-contact.twig:8
 msgid "Contactez-nous"
-msgstr "Kontakt"
+msgstr "Contact us"
 
 #: templates/footer.twig:41
 msgid "Documentation à télécharger"
-msgstr "Dokumentation zum Herunterladen"
+msgstr "Downloadable documentation"
 
 #: templates/pages/page-expertise.twig:160
 #: templates/pages/page-single-initiative.twig:78
 #: templates/pages/page-initiatives.twig:42
 msgid "En savoir plus"
-msgstr "Mehr anzeigen"
+msgstr "See more"
 
 #: templates/header.twig:95
 msgid "Espace Client"
-msgstr "Kunden-Login"
+msgstr "Client login"
 
 #: templates/footer.twig:9 templates/components/version-selection.twig:50
 #: templates/pages/page-implantations.twig:74
 msgid "France"
-msgstr "Frankreich"
+msgstr ""
 
 #. Author URI of the theme
 msgid "https://bemy.studio"
@@ -75,40 +75,40 @@ msgstr ""
 
 #: templates/pages/page-implantations.twig:39
 msgid "Implantations"
-msgstr "Standorte"
+msgstr "Locations"
 
 #: templates/components/version-selection.twig:58
 msgid "Langue"
-msgstr "Sprache"
+msgstr "Language"
 
 #: templates/header.twig:88
 msgid "News"
-msgstr "Nachricht"
+msgstr ""
 
 #: templates/pages/page-home-version.twig:15
 msgid "Nos clients"
-msgstr "Unsere Kunden"
+msgstr "Our clients"
 
 #: templates/pages/page-about.twig:18
 msgid "Nos valeurs"
-msgstr "Unsere Werte"
+msgstr "Our values"
 
 #: page.php:361
 msgid "Notre implantation"
-msgstr "Unser Standort"
+msgstr "Our office"
 
 #: templates/pages/page-about.twig:57
 msgid "Notre management"
-msgstr "Unser Management"
+msgstr "Our management"
 
 #: templates/pages/page-home-version.twig:125
 #: templates/pages/page-home-version.twig:131
 msgid "Nous contacter"
-msgstr "Kontakt"
+msgstr "Contact us"
 
 #: templates/pages/page-home-version.twig:116
 msgid "Nous rencontrer"
-msgstr "Unsere Standorte"
+msgstr "Meet us"
 
 #: templates/footer.twig:125
 msgid "ODDO BHF  Group © All rights reserved"
@@ -125,36 +125,32 @@ msgstr ""
 
 #: templates/components/version-selection.twig:32
 msgid "Pays"
-msgstr "Land"
+msgstr "Country"
 
 #: templates/footer.twig:91
 msgid "Pour toute information"
-msgstr "Für Informationsanfragen"
+msgstr "For any information request"
 
 #: templates/header.twig:85
 msgid "Présentation"
-msgstr "Präsentation"
-
-#: templates/pages/page-about.twig:137
-msgid "Rapport annuel"
-msgstr "Tätigkeitsbericht aufrufen"
+msgstr "Presentation"
 
 #: templates/pages/page-home-version.twig:79
 msgid "Récompenses"
-msgstr "Auszeichnungen"
+msgstr "Awards"
 
 #: templates/footer.twig:27 templates/components/version-selection.twig:52
 #: templates/pages/page-implantations.twig:101
 msgid "Suisse"
-msgstr "Schweiz"
+msgstr "Switzerland"
 
 #: templates/components/version-selection.twig:37
 msgid "Sélectionnez un pays"
-msgstr "Wähle ein Land"
+msgstr "Select a country"
 
 #: templates/components/version-selection.twig:63
 msgid "Sélectionnez une langue"
-msgstr "Wähle eine Sprache"
+msgstr "Select a language"
 
 #. Description of the theme
 msgid "The best smooth, modern, and incredibly fast theme by Bemy"

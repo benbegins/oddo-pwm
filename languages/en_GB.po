@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 10:38+0000\n"
-"PO-Revision-Date: 2024-08-21 11:22+0000\n"
+"PO-Revision-Date: 2024-08-22 07:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (UK)\n"
 "Language: en_GB\n"
@@ -41,7 +41,7 @@ msgstr "Other expertises"
 msgid "Bemy"
 msgstr ""
 
-#: templates/pages/page-about.twig:115
+#: templates/pages/page-about.twig:116
 msgid "Chiffres clés Banque Privée"
 msgstr "Key figures Private Wealth Management"
 
@@ -134,6 +134,10 @@ msgstr "For any information request"
 #: templates/header.twig:85
 msgid "Présentation"
 msgstr "Presentation"
+
+#: templates/pages/page-about.twig:137
+msgid "Rapport annuel"
+msgstr "See annual report"
 
 #: templates/pages/page-home-version.twig:79
 msgid "Récompenses"
