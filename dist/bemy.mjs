@@ -757,9 +757,9 @@ function es() {
       de: "Deutsch"
     },
     versionsAvailable: {
-      france: ["fr", "en"],
+      france: ["en", "fr"],
       germany: ["de", "en"],
-      switzerland: ["fr", "de", "en"]
+      switzerland: ["de", "en", "fr"]
     },
     languagesAvailable: [],
     versionSelected: null,
