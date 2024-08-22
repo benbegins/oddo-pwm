@@ -18,7 +18,7 @@ if ( ! function_exists( 'bemy_scripts' ) ) {
 		// Google Fonts
 		// Lato - light 200, regular 400, bold 700
 		// Libre Baskerville - regular 400, italic 400
-		wp_enqueue_style( 'vq-google-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Libre+Baskerville:ital@0;1&display=swap', array(), false );
+		wp_enqueue_style( 'vq-google-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Libre+Baskerville:ital@0;1&display=swap', array(), null );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'bemy_scripts' );
