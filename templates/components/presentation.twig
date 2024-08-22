@@ -9,7 +9,7 @@
                 <div class="rich-text">{{section.content}}</div>
                 {% set button = section.bouton %}
                 {% if button.url %}
-                    <a href="{{ button.url }}" class="btn-primary mt-4">{{ button.text }}</a>
+                    <a href="{{ button.url }}" target="_blank" class="btn-primary mt-4">{{ button.text }}</a>
                 {% endif %}
             </div>
         </div>
