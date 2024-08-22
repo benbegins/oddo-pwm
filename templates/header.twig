@@ -92,7 +92,21 @@
     
                     </ul>
                 {% endif %}
-                <a href="https://my-de.oddo-bhf.com/private" target="_blank" class="site-header__espace-client inline-block px-5 pt-1 pb-1.5 border border-black mt-3 lg:mt-0 lg:border-white rounded-full lg:transition-colors lg:duration-300 hover:bg-rouge hover:border-rouge">{{ __('Espace Client', 'bemy') }}</a>
+
+                {# Client Login #}
+                {% set currentLang = function('pll_current_language') %}
+                {% if currentLang == "fr" %}
+                    {% set client_login = options.client_login['client_login_fr'] %}
+                {% elseif currentLang == "en" %}
+                    {% set client_login = options.client_login['client_login_en'] %}
+                {% else %}
+                    {% set client_login = options.client_login['client_login_de'] %}
+                {% endif %}
+                
+                {% if client_login %}
+                    <a href="{{client_login}}" target="_blank" class="site-header__espace-client inline-block px-5 pt-1 pb-1.5 border border-black mt-3 lg:mt-0 lg:border-white rounded-full lg:transition-colors lg:duration-300 hover:bg-rouge hover:border-rouge">{{ __('Espace Client', 'bemy') }}</a>
+                {% endif %}
+                
             </nav>
             <div class="pointer-events-none fixed bg-black inset-0 z-0 transition-opacity duration-500 lg:hidden" :class="[menuOpen ? 'opacity-50' : 'opacity-0']"></div>
         </div>

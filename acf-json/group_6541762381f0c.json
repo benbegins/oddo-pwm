@@ -286,6 +286,75 @@
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0
+        },
+        {
+            "key": "field_66c7434cab347",
+            "label": "Espace client",
+            "name": "client_login",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_66c743121d27f",
+                    "label": "Espace client FR",
+                    "name": "client_login_fr",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/my-fr.oddo-bhf.com\/private",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_66c74365ab348",
+                    "label": "Espace client EN",
+                    "name": "client_login_en",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/my-fr.oddo-bhf.com\/private",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_66c74371ab349",
+                    "label": "Espace client DE",
+                    "name": "client_login_de",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/my-de.oddo-bhf.com\/private",
+                    "placeholder": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -306,5 +375,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724325868
+    "modified": 1724334981
 }
