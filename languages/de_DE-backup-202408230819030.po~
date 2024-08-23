@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 10:38+0000\n"
-"PO-Revision-Date: 2023-11-20 09:42+0000\n"
+"PO-Revision-Date: 2024-08-22 13:52+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -12,27 +12,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.6; wp-6.4.1\n"
+"X-Loco-Version: 2.6.10; wp-6.6.1\n"
 "X-Domain: bemy"
 
 #: templates/header.twig:6
 msgid "Agences"
 msgstr "Standorte"
 
-#: templates/components/version-selection.twig:51
-#: templates/pages/page-implantations.twig:45
+#: templates/footer.twig:18 templates/components/version-selection.twig:51
+#: templates/pages/page-implantations.twig:47
 msgid "Allemagne"
 msgstr "Deutschland"
 
-#: templates/footer.twig:62
+#: templates/footer.twig:67
 msgid "Application mobile ODDO BHF Banque Privée"
 msgstr "Mobile Anwendung der ODDO BHF Private Bank"
 
-#: templates/pages/page-branch.twig:57
+#: templates/pages/page-branch.twig:58
 msgid "Autres branches"
 msgstr "Andere Branchen"
 
-#: templates/pages/page-expertise.twig:64
+#: templates/pages/page-expertise.twig:136
 msgid "Autres expertises"
 msgstr "Dienstleistungen"
 
@@ -41,28 +41,31 @@ msgstr "Dienstleistungen"
 msgid "Bemy"
 msgstr ""
 
-#: templates/pages/page-about.twig:115
-msgid "Chiffres clés"
-msgstr "Kennzahlen"
+#: templates/pages/page-about.twig:116
+msgid "Chiffres clés Banque Privée"
+msgstr "KENNZAHLEN PRIVATE WEALTH MANAGEMENT"
 
-#: templates/header.twig:5 templates/footer.twig:88
+#: templates/header.twig:5 templates/footer.twig:93
+#: templates/pages/page-contact.twig:8
 msgid "Contactez-nous"
 msgstr "Kontakt"
 
-#: templates/footer.twig:36
+#: templates/footer.twig:41
 msgid "Documentation à télécharger"
 msgstr "Dokumentation zum Herunterladen"
 
-#: templates/pages/page-expertise.twig:88
+#: templates/pages/page-expertise.twig:160
+#: templates/pages/page-single-initiative.twig:78
+#: templates/pages/page-initiatives.twig:42
 msgid "En savoir plus"
 msgstr "Mehr anzeigen"
 
-#: templates/header.twig:85
+#: templates/header.twig:95
 msgid "Espace Client"
 msgstr "Kunden-Login"
 
-#: templates/components/version-selection.twig:50
-#: templates/pages/page-implantations.twig:66
+#: templates/footer.twig:9 templates/components/version-selection.twig:50
+#: templates/pages/page-implantations.twig:74
 msgid "France"
 msgstr "Frankreich"
 
@@ -70,13 +73,17 @@ msgstr "Frankreich"
 msgid "https://bemy.studio"
 msgstr ""
 
+#: templates/pages/page-implantations.twig:39
+msgid "Implantations"
+msgstr "Standorte"
+
 #: templates/components/version-selection.twig:58
 msgid "Langue"
 msgstr "Sprache"
 
-#: templates/header.twig:78
+#: templates/header.twig:88
 msgid "News"
-msgstr "Nachricht"
+msgstr ""
 
 #: templates/pages/page-home-version.twig:15
 msgid "Nos clients"
@@ -86,7 +93,7 @@ msgstr "Unsere Kunden"
 msgid "Nos valeurs"
 msgstr "Unsere Werte"
 
-#: page.php:351
+#: page.php:361
 msgid "Notre implantation"
 msgstr "Unser Standort"
 
@@ -103,32 +110,41 @@ msgstr "Kontakt"
 msgid "Nous rencontrer"
 msgstr "Unsere Standorte"
 
-#: templates/footer.twig:120
+#: templates/footer.twig:125
 msgid "ODDO BHF  Group © All rights reserved"
 msgstr ""
 
-#: templates/header.twig:65
+#: templates/header.twig:75
 msgid "ODDO BHF Group"
+msgstr "ODDO BHF Gruppe"
+
+#: templates/pages/page-single-initiative.twig:49
+#: templates/pages/page-initiatives.twig:11
+msgid "ODDO BHF Initiatives"
 msgstr ""
 
 #: templates/components/version-selection.twig:32
 msgid "Pays"
 msgstr "Land"
 
-#: templates/footer.twig:86
+#: templates/footer.twig:91
 msgid "Pour toute information"
 msgstr "Für Informationsanfragen"
 
-#: templates/header.twig:75
+#: templates/header.twig:85
 msgid "Présentation"
 msgstr "Präsentation"
+
+#: templates/pages/page-about.twig:137
+msgid "Rapport annuel"
+msgstr "Tätigkeitsbericht aufrufen"
 
 #: templates/pages/page-home-version.twig:79
 msgid "Récompenses"
 msgstr "Auszeichnungen"
 
-#: templates/components/version-selection.twig:52
-#: templates/pages/page-implantations.twig:87
+#: templates/footer.twig:27 templates/components/version-selection.twig:52
+#: templates/pages/page-implantations.twig:101
 msgid "Suisse"
 msgstr "Schweiz"
 
@@ -144,6 +160,6 @@ msgstr "Wähle eine Sprache"
 msgid "The best smooth, modern, and incredibly fast theme by Bemy"
 msgstr ""
 
-#: page.php:352
+#: page.php:362
 msgid "à"
 msgstr "in"

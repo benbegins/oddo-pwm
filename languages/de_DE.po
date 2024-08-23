@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 10:38+0000\n"
-"PO-Revision-Date: 2024-08-22 13:52+0000\n"
+"PO-Revision-Date: 2024-08-23 08:19+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -15,16 +15,12 @@ msgstr ""
 "X-Loco-Version: 2.6.10; wp-6.6.1\n"
 "X-Domain: bemy"
 
-#: templates/header.twig:6
-msgid "Agences"
-msgstr "Standorte"
-
 #: templates/footer.twig:18 templates/components/version-selection.twig:51
 #: templates/pages/page-implantations.twig:47
 msgid "Allemagne"
 msgstr "Deutschland"
 
-#: templates/footer.twig:67
+#: templates/footer.twig:92
 msgid "Application mobile ODDO BHF Banque Privée"
 msgstr "Mobile Anwendung der ODDO BHF Private Bank"
 
@@ -45,12 +41,12 @@ msgstr ""
 msgid "Chiffres clés Banque Privée"
 msgstr "KENNZAHLEN PRIVATE WEALTH MANAGEMENT"
 
-#: templates/header.twig:5 templates/footer.twig:93
+#: templates/header.twig:5 templates/footer.twig:126
 #: templates/pages/page-contact.twig:8
 msgid "Contactez-nous"
 msgstr "Kontakt"
 
-#: templates/footer.twig:41
+#: templates/footer.twig:45 templates/footer.twig:66
 msgid "Documentation à télécharger"
 msgstr "Dokumentation zum Herunterladen"
 
@@ -60,7 +56,7 @@ msgstr "Dokumentation zum Herunterladen"
 msgid "En savoir plus"
 msgstr "Mehr anzeigen"
 
-#: templates/header.twig:95
+#: templates/header.twig:110
 msgid "Espace Client"
 msgstr "Kunden-Login"
 
@@ -103,14 +99,16 @@ msgstr "Unser Management"
 
 #: templates/pages/page-home-version.twig:125
 #: templates/pages/page-home-version.twig:131
+#: templates/pages/page-about.twig:161 templates/pages/page-about.twig:167
 msgid "Nous contacter"
 msgstr "Kontakt"
 
 #: templates/pages/page-home-version.twig:116
+#: templates/pages/page-about.twig:152
 msgid "Nous rencontrer"
 msgstr "Unsere Standorte"
 
-#: templates/footer.twig:125
+#: templates/footer.twig:163
 msgid "ODDO BHF  Group © All rights reserved"
 msgstr ""
 
@@ -127,7 +125,7 @@ msgstr ""
 msgid "Pays"
 msgstr "Land"
 
-#: templates/footer.twig:91
+#: templates/footer.twig:124
 msgid "Pour toute information"
 msgstr "Für Informationsanfragen"
 
@@ -159,6 +157,10 @@ msgstr "Wähle eine Sprache"
 #. Description of the theme
 msgid "The best smooth, modern, and incredibly fast theme by Bemy"
 msgstr ""
+
+#: templates/header.twig:6
+msgid "Trouvez-nous"
+msgstr "Unsere Standorte"
 
 #: page.php:362
 msgid "à"
