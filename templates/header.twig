@@ -95,7 +95,10 @@
 
                 {# Client Login #}
                 {% set currentLang = function('pll_current_language') %}
-                {% if currentLang == "fr" %}
+                {% if version == "switzerland" %}
+                    {% set client_login = options.client_login['client_login_ch'] %}
+                
+                {% elseif currentLang == "fr" %}
                     {% set client_login = options.client_login['client_login_fr'] %}
                 {% elseif currentLang == "en" %}
                     {% set client_login = options.client_login['client_login_en'] %}

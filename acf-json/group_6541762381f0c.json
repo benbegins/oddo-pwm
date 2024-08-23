@@ -461,6 +461,23 @@
                     },
                     "default_value": "https:\/\/my-de.oddo-bhf.com\/private",
                     "placeholder": ""
+                },
+                {
+                    "key": "field_66c841d620290",
+                    "label": "Espace client Suisse (Toutes langues)",
+                    "name": "client_login_ch",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/my-ch.oddo-bhf.com",
+                    "placeholder": ""
                 }
             ]
         }
@@ -483,5 +500,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724336666
+    "modified": 1724400245
 }
