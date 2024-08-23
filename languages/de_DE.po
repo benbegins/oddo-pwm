@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 10:38+0000\n"
-"PO-Revision-Date: 2024-08-23 08:19+0000\n"
+"PO-Revision-Date: 2024-08-23 09:07+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -111,6 +111,10 @@ msgstr "Unsere Standorte"
 #: templates/footer.twig:163
 msgid "ODDO BHF  Group © All rights reserved"
 msgstr ""
+
+#: templates/footer.twig:26
+msgid "ODDO BHF (Suisse) SA"
+msgstr "ODDO BHF (Schweiz) AG"
 
 #: templates/header.twig:75
 msgid "ODDO BHF Group"
