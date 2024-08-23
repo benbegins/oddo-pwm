@@ -141,6 +141,23 @@
                     "placeholder": ""
                 },
                 {
+                    "key": "field_66c842ec11c09",
+                    "label": "Apple store Suisse",
+                    "name": "apple_store_ch",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/apps.apple.com\/de\/app\/oddo-bhf-switzerland-my-wealth\/id1672372298",
+                    "placeholder": ""
+                },
+                {
                     "key": "field_65425e2d5b6b9",
                     "label": "Google Play",
                     "name": "google_play",
@@ -155,6 +172,23 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_66c842ff11c0a",
+                    "label": "Google Play Suisse",
+                    "name": "google_play_ch",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "https:\/\/play.google.com\/store\/apps\/details?id=com.oddobhf.myWealthCH&hl=de_CH",
                     "placeholder": ""
                 }
             ]
@@ -500,5 +534,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724400245
+    "modified": 1724400401
 }
