@@ -19,7 +19,19 @@
                 <div class="lg:w-5/6 lg:ml-auto">
                     <div>
                         <h3 class="text-lg lg:text-2xl font-baskerville">{{city}}</h3>
-                        <p>{{ infos.adress|nl2br }}</p>
+                        <p>
+                            {{ infos.adress|nl2br }} <br>
+                            <span class="uppercase">
+                                {% set current_country = branch.terms('pays')[0].slug %}
+                                {% if current_country == 'france' %}
+                                    {{ __('France', 'bemy') }}
+                                {% elseif current_country == 'germany' %}
+                                    {{ __('Allemagne', 'bemy') }}
+                                {% elseif current_country == 'switzerland' %}
+                                    {{ __('Suisse', 'bemy') }}
+                                {% endif %}
+                            </span>
+                        </p>
                     </div>
                     <div class="mt-4 flex flex-col gap-1 lg:mt-6">
                         {% if infos.phone %}
