@@ -48,7 +48,13 @@
                         <span class="icon-dropdown text-2xs"></span>
                     </button>
                     <ul v-if="showGermany" class="bg-white shadow-xl absolute z-10 w-full top-full -translate-y-px">
-                        {% for branch in branches_germany %}
+                        {% if lang == "de" %}
+                            {% set branches = branches_germany|sort((a,b) => a.meta('name_de') <=> b.meta('name_de')) %}
+                        {% else %}
+                            {% set branches = branches_germany %}
+                        {% endif %}
+                        
+                        {% for branch in branches %}
                             <li>
                                 <a 
                                     class="px-5 py-2 block hover:bg-greige"
