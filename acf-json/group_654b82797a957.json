@@ -384,6 +384,26 @@
             "min": "",
             "max": "",
             "button_label": "Ajouter un élément"
+        },
+        {
+            "key": "field_66cc3d2deed86",
+            "label": "Disclaimer",
+            "name": "disclaimer",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -404,5 +424,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1700821171
+    "modified": 1724661048
 }

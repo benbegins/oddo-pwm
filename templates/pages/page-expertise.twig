@@ -128,6 +128,17 @@
     {% endif %}
 
 
+    {# Disclaimer #}
+    {% if post.meta('disclaimer') %}
+    <section class="pt-56 lg:pt-80">
+        <div class="container">
+            <p class="text-xs">{{post.meta('disclaimer')}}</p>
+        </div>
+    </section>
+    {% endif %}
+    
+
+
 
     {# Autre expertises #}
     {% if other_expertises %}
