@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 10:38+0000\n"
-"PO-Revision-Date: 2024-08-23 09:06+0000\n"
+"PO-Revision-Date: 2024-08-26 07:45+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (UK)\n"
 "Language: en_GB\n"
@@ -15,7 +15,12 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.4.1\n"
 "X-Domain: bemy"
 
+#: templates/header.twig:75
+msgid "Actualités"
+msgstr "ODDO BHF Group"
+
 #: templates/footer.twig:18 templates/components/version-selection.twig:51
+#: templates/pages/page-branch.twig:29
 #: templates/pages/page-implantations.twig:47
 msgid "Allemagne"
 msgstr "Germany"
@@ -24,7 +29,7 @@ msgstr "Germany"
 msgid "Application mobile ODDO BHF Banque Privée"
 msgstr "ODDO BHF Banque Privée’s app"
 
-#: templates/pages/page-branch.twig:58
+#: templates/pages/page-branch.twig:70
 msgid "Autres branches"
 msgstr "Other branches"
 
@@ -56,12 +61,13 @@ msgstr "Downloadable documentation"
 msgid "En savoir plus"
 msgstr "See more"
 
-#: templates/header.twig:110
+#: templates/header.twig:111
 msgid "Espace Client"
 msgstr "Client login"
 
 #: templates/footer.twig:9 templates/components/version-selection.twig:50
-#: templates/pages/page-implantations.twig:74
+#: templates/pages/page-branch.twig:27
+#: templates/pages/page-implantations.twig:80
 msgid "France"
 msgstr ""
 
@@ -77,7 +83,7 @@ msgstr "Locations"
 msgid "Langue"
 msgstr "Language"
 
-#: templates/header.twig:88
+#: templates/header.twig:89
 msgid "News"
 msgstr ""
 
@@ -116,10 +122,6 @@ msgstr ""
 msgid "ODDO BHF (Suisse) SA"
 msgstr "ODDO BHF (Switzerland) Ltd"
 
-#: templates/header.twig:75
-msgid "ODDO BHF Group"
-msgstr ""
-
 #: templates/pages/page-single-initiative.twig:49
 #: templates/pages/page-initiatives.twig:11
 msgid "ODDO BHF Initiatives"
@@ -133,7 +135,7 @@ msgstr "Country"
 msgid "Pour toute information"
 msgstr "For any information request"
 
-#: templates/header.twig:85
+#: templates/header.twig:86
 msgid "Présentation"
 msgstr "Presentation"
 
@@ -146,7 +148,8 @@ msgid "Récompenses"
 msgstr "Awards"
 
 #: templates/footer.twig:27 templates/components/version-selection.twig:52
-#: templates/pages/page-implantations.twig:101
+#: templates/pages/page-branch.twig:31
+#: templates/pages/page-implantations.twig:107
 msgid "Suisse"
 msgstr "Switzerland"
 
