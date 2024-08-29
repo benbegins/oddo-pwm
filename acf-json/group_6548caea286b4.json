@@ -170,6 +170,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "!=",
+                "value": "type-de-page:branche"
             }
         ]
     ],
@@ -182,5 +187,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1699269690
+    "modified": 1724926213
 }
