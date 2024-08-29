@@ -89,7 +89,13 @@
 
             {# Apps #}
             <div>
-                <p class="mb-4">{{ __('ODDO BHF My Wealth', 'bemy') }}</p>
+                <p class="mb-4">
+                {% if version == "switzerland" %}
+                    ODDO BHF Switzerland My Wealth
+                {% else %}
+                    ODDO BHF My Wealth
+                {% endif %}
+                </p>
                 <ul class="flex flex-col items-start gap-2 lg:flex-row lg:gap-4">
                     <li>
                         {% set appstore = options.apps.apple_store %}
