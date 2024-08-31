@@ -224,30 +224,7 @@ if($type_de_page == 'home'){
 if($type_de_page == 'about'){
     $page_name = 'about';
 
-    // $page_manager = get_posts(array(
-    //     'post_type' => 'page',
-    //     'posts_per_page' => 1,
-    //     'tax_query' => array(
-    //         array(
-    //             'taxonomy' => 'type-de-page',
-    //             'field' => 'slug',
-    //             'terms' => 'manager',
-    //         ),
-    //         array(
-    //             'taxonomy' => 'version',
-    //             'field' => 'slug',
-    //             'terms' => $context['version'],
-    //         ),
-    //     ),
-    // ));
-    
-    // if ($page_manager){
-    //     $context['page_manager'] = get_the_permalink(pll_get_post($page_manager[0]->ID));
-    // } else {
-    //     $context['page_manager'] = $context['home'];
-    // }
-
-    // Get children pages of the current page with taxonomy "type-de-page" = "manager"
+    // Get children pages of the about page (current) with taxonomy "type-de-page" = "manager"
     $args = array(
         'post_type' => 'page',
         'posts_per_page' => -1,
@@ -289,28 +266,6 @@ if($type_de_page == 'manager'){
     if($manager){
         $context['manager'] = new Timber\Post($manager);
     }
-
-    // $manager = $_GET['person'];
-    // $manager = sanitize_text_field( $manager );
-
-    // if(!$manager){
-    //     wp_redirect( $context['home'] );
-    //     exit;
-    // }
-
-    // $args = array(
-    //     'post_type' => 'manager',
-    //     'name' => $manager,
-    // );
-    // $manager_post = Timber::get_posts( $args );
-
-
-    // if(!$manager_post) {
-    //     wp_redirect( $context['home'] );
-    //     exit;
-    // }
-    
-    // $context['manager'] = $manager_post[0];
 }
 
 
