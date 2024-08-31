@@ -175,6 +175,11 @@
                 "param": "post_taxonomy",
                 "operator": "!=",
                 "value": "type-de-page:branche"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "!=",
+                "value": "type-de-page:manager"
             }
         ]
     ],
@@ -187,5 +192,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724926213
+    "modified": 1725108876
 }
