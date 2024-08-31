@@ -6,6 +6,7 @@
 
     {% include "components/presentation.twig" %}
 
+
     <section v-scope="Implantations()" class="bg-vert-light relative mt-56 lg:mt-80">
         <div class="relative lg:w-3/5">
             <img 
@@ -16,116 +17,85 @@
                 >
             <div class="absolute w-full h-16 bottom-0 right-0 bg-gradient-to-t from-vert-light lg:w-1/3 lg:h-full lg:bg-gradient-to-l"></div>
             {# Pointer France #}
-            {% if branches_france %}
             <button class="btn-pointer text-white text-xl absolute z-10 top-[50%] left-[47%]" @click="toggleSelect($el)" data-country="france">
                 <span class="icon-pointer"></span>
             </button>
-            {% endif %}
             {# Pointer germany #}
-            {% if branches_germany %}
             <button class="btn-pointer text-white text-xl absolute z-10 top-[30%] left-[67%]" @click="toggleSelect($el)" data-country="germany">
                 <span class="icon-pointer"></span>
             </button>
-            {% endif %}
             {# Pointer switzerland #}
-            {% if branches_switzerland %}
             <button class="btn-pointer text-white text-xl absolute z-10 top-[55%] left-[63%]" @click="toggleSelect($el)" data-country="switzerland">
                 <span class="icon-pointer"></span>
             </button>
-            {% endif %}
         </div>
         <div class="container py-56 lg:absolute lg:w-11/12 lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:flex lg:justify-end">
             <div class="lg:w-1/4">
                 <h2 class="text-sm font-bold uppercase tracking-widest">{{ __('Implantations', 'bemy') }}</h2>
 
-                {% set lang = function('pll_current_language') %}
-
                 {# Allemagne #}
-                {% if branches_germany %}
                 <div class="relative">
                     <button @click="toggleSelect($el)" data-country="germany" class="btn-implantations w-full flex items-center justify-between gap-4 border-b border-black py-3 mt-1">
                         {{ __('Allemagne', 'bemy') }}
                         <span class="icon-dropdown text-2xs"></span>
                     </button>
-                    <ul v-if="showGermany" class="bg-white shadow-xl absolute z-10 w-full top-full -translate-y-px">
-                        {% if lang == "de" %}
-                            {% set branches = branches_germany|sort((a,b) => a.meta('name_de') <=> b.meta('name_de')) %}
-                        {% else %}
-                            {% set branches = branches_germany %}
-                        {% endif %}
-                        
-                        {% for branch in branches %}
+                    <ul v-if="showGermany" class="bg-white shadow-xl absolute z-10 w-full top-full -translate-y-px">                        
+                        {% for branch in branches_pages %}
+                            {% if branch.country == 'germany' %}
                             <li>
                                 <a 
                                     class="px-5 py-2 block hover:bg-greige"
-                                    href="{{page_agences}}?branchname={{branch.slug}}">
-                                    {% if lang == 'en' and branch.meta('name_en') %}
-                                        {{ branch.meta('name_en')}}
-                                    {% elseif lang == 'de' and branch.meta('name_de') %}
-                                        {{ branch.meta('name_de')}}
-                                    {% else %}
-                                        {{ branch.name }}
-                                    {% endif %}
+                                    href="{{branch.permalink}}">
+                                    {{branch.title}}
                                 </a>
                             </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 </div>
-                {% endif %}
+
 
                 {# France #}
-                {% if branches_france %}
                 <div class="relative">
                     <button @click="toggleSelect($el)" data-country="france" class="btn-implantations w-full flex items-center justify-between gap-4 border-b border-black py-3 mt-1">
                         {{ __('France', 'bemy') }}
                         <span class="icon-dropdown text-2xs"></span>
                     </button>
                     <ul v-if="showFrance" class="bg-white shadow-xl absolute z-10 w-full top-full -translate-y-px">
-                        {% for branch in branches_france %}
+                        {% for branch in branches_pages %}
+                            {% if branch.country == 'france' %}
                             <li>
                                 <a 
                                     class="px-5 py-2 block hover:bg-greige"
-                                    href="{{page_agences}}?branchname={{branch.slug}}">
-                                    {% if lang == 'en' and branch.meta('name_en') %}
-                                        {{ branch.meta('name_en')}}
-                                    {% elseif lang == 'de' and branch.meta('name_de') %}
-                                        {{ branch.meta('name_de')}}
-                                    {% else %}
-                                        {{ branch.name }}
-                                    {% endif %}
+                                    href="{{branch.permalink}}">
+                                    {{branch.title}}
                                 </a>
                             </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 </div>
-                {% endif %}
 
                 {# Suisse #}
-                {% if branches_switzerland %}
                 <div class="relative">
                     <button @click="toggleSelect($el)" data-country="switzerland" class="btn-implantations w-full flex items-center justify-between gap-4 border-b border-black py-3 mt-1">
                         {{ __('Suisse', 'bemy') }}
                         <span class="icon-dropdown text-2xs"></span>
                     </button>
                     <ul v-if="showSwitzerland" class="bg-white shadow-xl absolute z-10 w-full top-full -translate-y-px">
-                        {% for branch in branches_switzerland %}
+                        {% for branch in branches_pages %}
+                            {% if branch.country == 'switzerland' %}
                             <li>
                                 <a 
                                     class="px-5 py-2 block hover:bg-greige"
-                                    href="{{page_agences}}?branchname={{branch.slug}}">
-                                    {% if lang == 'en' and branch.meta('name_en') %}
-                                        {{ branch.meta('name_en')}}
-                                    {% elseif lang == 'de' and branch.meta('name_de') %}
-                                        {{ branch.meta('name_de')}}
-                                    {% else %}
-                                        {{ branch.name }}
-                                    {% endif %}
+                                    href="{{branch.permalink}}">
+                                    {{branch.title}}
                                 </a>
                             </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
-                </div>
-                {% endif %}       
+                </div>   
 
             </div>
         </div>

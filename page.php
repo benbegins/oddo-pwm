@@ -325,119 +325,73 @@ if($type_de_page == 'expertise'){
 if($type_de_page == 'implantations'){
     $page_name = 'implantations';
 
-    // Branches
-    if (isset($_GET['branchname'])){
-        $branch = $_GET['branchname'];
-        $branch = sanitize_text_field( $branch );
+    $args = array(
+        'parent' => $timber_post->ID,
+    );
+    $branches_pages = get_pages($args);
 
-        if($branch){
-            $args = array(
-                'post_type' => 'branch',
-                'name' => $branch,
-            );
-            $branch_post = Timber::get_posts( $args );
-        
-        
-            if(!$branch_post) {
-                wp_redirect( $context['home'] );
-                exit;
-            }
-            
-            $page_name = 'branch';
-            $context['branch'] = $branch_post[0];
-
-            // Header
-            $city_name = $branch_post[0]->post_title;
-            $current_lang = pll_current_language();
-            // Get the name of the city in the current language
-            if($current_lang == 'en' && get_field('name_en', $branch_post[0]->ID)){
-                $city_name = get_field('name_en', $branch_post[0]->ID);
-            } else if ($current_lang == 'de' && get_field('name_de', $branch_post[0]->ID)){
-                $city_name = get_field('name_de', $branch_post[0]->ID);
-            }
-                
-            $hero_section = array(
-                'page_title' => 'Private Wealth Management',
-                'catch_phrase_part_1' => __('Notre implantation', 'bemy'),
-                'catch_phrase_part_2' => __('à', 'bemy') . ' ' . $city_name,
-            );
-            $context['hero_section'] = $hero_section;
-            $context ['city'] = $city_name;
-
-
-            // Other branches
-            $args = array(
-                'post_type' => 'branch',
-                'posts_per_page' => -1,
-                'post__not_in' => array($branch_post[0]->ID),
-                'orderby' => 'name',
-                'order' => 'ASC',
-            );
-            $other_branches = Timber::get_posts( $args );
-            if(!empty($other_branches)){
-                $context['other_branches'] = $other_branches;
-            }
-        }    
-    }
-
-    // Agences
-    else {
-        $args = array(
-            'post_type' => 'branch',
-            'posts_per_page' => -1,
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'pays',
-                    'field' => 'slug',
-                    'terms' => 'france',
-                ),
-            ),
-            'orderby' => 'name',
-            'order' => 'ASC',
+    $branches_pages = array_map(function($branch){
+        $branch_content = get_field('branch', $branch);
+        return array(
+            'title' => $branch->post_title,
+            'permalink' => get_the_permalink($branch),
+            'country' => get_the_terms($branch_content, 'pays')[0]->slug,
+            'branch' => new Timber\Post($branch_content),
         );
-        $branches_france = Timber::get_posts( $args );
-        if(!empty($branches_france)){
-            $context['branches_france'] = $branches_france;
-        }
+    }, $branches_pages);
 
-        $args = array(
-            'post_type' => 'branch',
-            'posts_per_page' => -1,
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'pays',
-                    'field' => 'slug',
-                    'terms' => 'germany',
-                ),
-            ),
-            'orderby' => 'name',
-            'order' => 'ASC',
-        );
-        $branches_germany = Timber::get_posts( $args );
-        if(!empty($branches_germany)){
-            $context['branches_germany'] = $branches_germany;
-        }
+    // Sort branches by title
+    usort($branches_pages, function($a, $b){
+        return strcmp($a['title'], $b['title']);
+    });
 
-        $args = array(
-            'post_type' => 'branch',
-            'posts_per_page' => -1,
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'pays',
-                    'field' => 'slug',
-                    'terms' => 'switzerland',
-                ),
-            ),
-            'orderby' => 'name',
-            'order' => 'ASC',
-        );
-        $branches_switzerland = Timber::get_posts( $args );
-        if(!empty($branches_switzerland)){
-            $context['branches_switzerland'] = $branches_switzerland;
-        }
-    }
+    $context['branches_pages'] = $branches_pages;
 }
 
+
+/**
+ * PAGE BRANCHE
+ */
+if($type_de_page == 'branche'){
+    $page_name = 'single-branch';
+
+    // Get the branch
+    $branch = get_field('branch', $timber_post->ID);
+    
+    // Set $branch as Post object
+    if($branch){
+        $branch = new Timber\Post($branch);
+        $context['branch'] = $branch;
+
+         // Hero
+        $hero_section = array(
+            'page_title' => 'Private Wealth Management',
+            'catch_phrase_part_1' => __('Notre implantation', 'bemy'),
+            'catch_phrase_part_2' => __('à', 'bemy') . ' ' . get_the_title(),
+        );
+        $context['hero_section'] = $hero_section;
+
+
+
+        $args = array(
+            'parent' => get_post_parent($timber_post->ID)->ID,
+            'exclude' => $timber_post->ID,
+        );
+        $other_branches = get_pages($args);
+        
+        // Create an array of each branch with the permalink and the post object contained in the field "branch"
+        $other_branches = array_map(function($branch){
+            $branch_content = get_field('branch', $branch);
+            return array(
+                'permalink' => get_the_permalink($branch),
+                'branch' => new Timber\Post($branch_content),
+            );
+        }, $other_branches);
+
+        $context['other_branches'] = $other_branches;
+
+    }
+}
 
 /**
  * CONTACT PAGE
