@@ -49,7 +49,6 @@
 
 
     {# Management #}
-    {% set managers = post.meta('managers') %}
     {% if managers %}
 
     <section v-scope="Slider({slidesPerPage: 4})" class="pb-56 lg:pb-80">
@@ -72,10 +71,7 @@
                     {% for manager in managers %}
                         <li class="swiper-slide">
                             <div class="flex flex-col gap-2 relative">
-                                {% if page_manager %}
-                                {% set link = function('add_query_arg', 'person', manager.manager.slug, page_manager) %}
-                                {% set manager_url = function('esc_url', link) %}
-                                <a href="{{manager_url}}">
+                                <a href="{{manager.permalink}}">
                                     <div class="img-container w-full aspect-portrait bg-black">
                                         {{function('get_the_post_thumbnail', manager.manager.id, 'medium_large')}}
                                     </div>
@@ -87,12 +83,11 @@
 
                                 
                                 
-                                <a href="{{manager_url}}" class="w-6 h-6 border border-rouge rounded-full flex items-center justify-center absolute right-0 bottom-0 fill-rouge hover:bg-rouge hover:fill-white">
+                                <a href="{{manager.permalink}}" class="w-6 h-6 border border-rouge rounded-full flex items-center justify-center absolute right-0 bottom-0 fill-rouge hover:bg-rouge hover:fill-white">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                         <path id="Tracé_833" data-name="Tracé 833" d="M8,16a.5.5,0,0,1-.5-.5v-7H.5a.5.5,0,1,1,0-1h7V.5a.5.5,0,1,1,1,0v7h7a.5.5,0,0,1,0,1h-7v7A.5.5,0,0,1,8,16Z"/>
                                     </svg>
                                 </a>
-                                {% endif %}
                             </div>
                         </li>
                     {% endfor %}

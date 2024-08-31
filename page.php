@@ -224,27 +224,54 @@ if($type_de_page == 'home'){
 if($type_de_page == 'about'){
     $page_name = 'about';
 
-    $page_manager = get_posts(array(
+    // $page_manager = get_posts(array(
+    //     'post_type' => 'page',
+    //     'posts_per_page' => 1,
+    //     'tax_query' => array(
+    //         array(
+    //             'taxonomy' => 'type-de-page',
+    //             'field' => 'slug',
+    //             'terms' => 'manager',
+    //         ),
+    //         array(
+    //             'taxonomy' => 'version',
+    //             'field' => 'slug',
+    //             'terms' => $context['version'],
+    //         ),
+    //     ),
+    // ));
+    
+    // if ($page_manager){
+    //     $context['page_manager'] = get_the_permalink(pll_get_post($page_manager[0]->ID));
+    // } else {
+    //     $context['page_manager'] = $context['home'];
+    // }
+
+    // Get children pages of the current page with taxonomy "type-de-page" = "manager"
+    $args = array(
         'post_type' => 'page',
-        'posts_per_page' => 1,
+        'posts_per_page' => -1,
+        'post_parent' => $timber_post->ID,
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
         'tax_query' => array(
             array(
                 'taxonomy' => 'type-de-page',
                 'field' => 'slug',
                 'terms' => 'manager',
             ),
-            array(
-                'taxonomy' => 'version',
-                'field' => 'slug',
-                'terms' => $context['version'],
-            ),
         ),
-    ));
-    
-    if ($page_manager){
-        $context['page_manager'] = get_the_permalink(pll_get_post($page_manager[0]->ID));
-    } else {
-        $context['page_manager'] = $context['home'];
+    );
+    $managers = Timber::get_posts( $args );
+
+    if($managers){
+        foreach($managers as $manager){
+            // create an array with the manager post object and the custom field "manager" (which is a post object)
+            $context['managers'][] = array(
+                'permalink' => get_the_permalink($manager),
+                'manager' => new Timber\Post(get_field('manager', $manager->ID)),
+            );
+        }
     }
 }
 
@@ -257,27 +284,33 @@ if($type_de_page == 'manager'){
     $page_name = 'manager';
     $context['hero_light'] = true;
 
-    $manager = $_GET['person'];
-    $manager = sanitize_text_field( $manager );
+    $manager = get_field('manager', $timber_post->ID);
 
-    if(!$manager){
-        wp_redirect( $context['home'] );
-        exit;
+    if($manager){
+        $context['manager'] = new Timber\Post($manager);
     }
 
-    $args = array(
-        'post_type' => 'manager',
-        'name' => $manager,
-    );
-    $manager_post = Timber::get_posts( $args );
+    // $manager = $_GET['person'];
+    // $manager = sanitize_text_field( $manager );
+
+    // if(!$manager){
+    //     wp_redirect( $context['home'] );
+    //     exit;
+    // }
+
+    // $args = array(
+    //     'post_type' => 'manager',
+    //     'name' => $manager,
+    // );
+    // $manager_post = Timber::get_posts( $args );
 
 
-    if(!$manager_post) {
-        wp_redirect( $context['home'] );
-        exit;
-    }
+    // if(!$manager_post) {
+    //     wp_redirect( $context['home'] );
+    //     exit;
+    // }
     
-    $context['manager'] = $manager_post[0];
+    // $context['manager'] = $manager_post[0];
 }
 
 
