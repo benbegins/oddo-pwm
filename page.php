@@ -378,11 +378,17 @@ if($type_de_page == 'branche'){
             'exclude' => $timber_post->ID,
         );
         $other_branches = get_pages($args);
+
+        // Sort branches by title
+        usort($other_branches, function($a, $b){
+            return strcmp($a->post_title, $b->post_title);
+        });
         
         // Create an array of each branch with the permalink and the post object contained in the field "branch"
         $other_branches = array_map(function($branch){
             $branch_content = get_field('branch', $branch);
             return array(
+                'title' => $branch->post_title,
                 'permalink' => get_the_permalink($branch),
                 'branch' => new Timber\Post($branch_content),
             );

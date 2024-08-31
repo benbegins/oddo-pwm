@@ -84,6 +84,7 @@
                     {% set current_pays = branch.terms('pays')[0].slug %}
                     {% for item in other_branches %}
                         {% set permalink = item.permalink %}
+                        {% set title = item.title %}
                         {% set branch = item.branch %}
                         {# Display only branches from the same country #}
                         {% if branch.terms('pays')[0].slug == current_pays %}
@@ -94,7 +95,7 @@
                                         {{ function('wp_get_attachment_image', infos.photo, "medium_large") }}
                                     </div>
                                     <h3 class="slide-title text-md lg:text-xl font-baskerville">
-                                        {{branch.post_title}}
+                                        {{title}}
                                     </h3>
                                     <p>{{ infos.adress|nl2br }}</p>
                                     <div class="text-right absolute bottom-0 left-0 w-full">
