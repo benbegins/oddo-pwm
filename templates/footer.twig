@@ -42,7 +42,7 @@
             {# Switzerland Version #}
             {% elseif version == 'switzerland' and options.switzerland_documentation %}
                 <div class="flex flex-col gap-4">
-                    <h3 class="font-baskerville">{{ __('Documentation à télécharger', 'bemy') }}</h3>
+                    <p class="font-baskerville">{{ __('Documentation à télécharger', 'bemy') }}</p>
                     {% for doc in options.switzerland_documentation %}
                         <a href="{{doc.document}}" class="flex items-start gap-2" target="_blank">
                             <span class="icon-download text-xs mt-2"></span>
@@ -63,7 +63,7 @@
             {# Other versions #}
             {% elseif options.documentation %}
                 <div class="flex flex-col gap-4">
-                    <h3 class="font-baskerville">{{ __('Documentation à télécharger', 'bemy') }}</h3>
+                    <p class="font-baskerville">{{ __('Documentation à télécharger', 'bemy') }}</p>
                     {% for doc in options.documentation %}
                         <a href="{{doc.document}}" class="flex items-start gap-2" target="_blank">
                             <span class="icon-download text-xs mt-2"></span>
