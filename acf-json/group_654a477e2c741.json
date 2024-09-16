@@ -172,6 +172,23 @@
             ]
         },
         {
+            "key": "field_66e81d1deeb99",
+            "label": "Bouton Valeurs",
+            "name": "values_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_654a486b3f3b3",
             "label": "Chiffres clés",
             "name": "chiffres_cles",
@@ -297,5 +314,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1726486740
+    "modified": 1726487931
 }
