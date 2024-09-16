@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-26 07:45+0000\n"
+"POT-Creation-Date: 2024-09-16 11:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,25 +16,23 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.4.1\n"
 "X-Domain: bemy"
 
-#: templates/header.twig:75
+#: templates/header.twig:94
 msgid "Actualités"
 msgstr ""
 
 #: templates/footer.twig:18 templates/components/version-selection.twig:51
 #: templates/pages/page-branch.twig:29
-#: templates/pages/page-implantations.twig:47
+#: templates/pages/page-implantations.twig:39
+#: templates/pages/page-single-branch.twig:29
 msgid "Allemagne"
 msgstr ""
 
-#: templates/footer.twig:92
-msgid "Application mobile ODDO BHF Banque Privée"
-msgstr ""
-
 #: templates/pages/page-branch.twig:70
+#: templates/pages/page-single-branch.twig:70
 msgid "Autres branches"
 msgstr ""
 
-#: templates/pages/page-expertise.twig:136
+#: templates/pages/page-expertise.twig:147
 msgid "Autres expertises"
 msgstr ""
 
@@ -43,11 +41,11 @@ msgstr ""
 msgid "Bemy"
 msgstr ""
 
-#: templates/pages/page-about.twig:116
+#: templates/pages/page-about.twig:111
 msgid "Chiffres clés Banque Privée"
 msgstr ""
 
-#: templates/header.twig:5 templates/footer.twig:126
+#: templates/header.twig:5 templates/footer.twig:132
 #: templates/pages/page-contact.twig:8
 msgid "Contactez-nous"
 msgstr ""
@@ -56,27 +54,32 @@ msgstr ""
 msgid "Documentation à télécharger"
 msgstr ""
 
-#: templates/pages/page-expertise.twig:160
-#: templates/pages/page-single-initiative.twig:78
-#: templates/pages/page-initiatives.twig:42
+#: templates/pages/page-expertise.twig:171
+#: templates/pages/page-single-initiative.twig:82
+#: templates/pages/page-initiatives.twig:43
 msgid "En savoir plus"
 msgstr ""
 
-#: templates/header.twig:111
+#: templates/header.twig:130
 msgid "Espace Client"
 msgstr ""
 
 #: templates/footer.twig:9 templates/components/version-selection.twig:50
 #: templates/pages/page-branch.twig:27
-#: templates/pages/page-implantations.twig:80
+#: templates/pages/page-implantations.twig:61
+#: templates/pages/page-single-branch.twig:27
 msgid "France"
+msgstr ""
+
+#: templates/header.twig:105
+msgid "Groupe"
 msgstr ""
 
 #. Author URI of the theme
 msgid "https://bemy.studio"
 msgstr ""
 
-#: templates/pages/page-implantations.twig:39
+#: templates/pages/page-implantations.twig:34
 msgid "Implantations"
 msgstr ""
 
@@ -84,7 +87,7 @@ msgstr ""
 msgid "Langue"
 msgstr ""
 
-#: templates/header.twig:89
+#: templates/header.twig:108
 msgid "News"
 msgstr ""
 
@@ -96,26 +99,24 @@ msgstr ""
 msgid "Nos valeurs"
 msgstr ""
 
-#: page.php:361
+#: page.php:357
 msgid "Notre implantation"
 msgstr ""
 
-#: templates/pages/page-about.twig:57
+#: templates/pages/page-about.twig:56
 msgid "Notre management"
 msgstr ""
 
-#: templates/pages/page-home-version.twig:125
-#: templates/pages/page-home-version.twig:131
-#: templates/pages/page-about.twig:161 templates/pages/page-about.twig:167
+#: templates/components/section-meet-us.twig:24
+#: templates/components/section-meet-us.twig:31
 msgid "Nous contacter"
 msgstr ""
 
-#: templates/pages/page-home-version.twig:116
-#: templates/pages/page-about.twig:152
+#: templates/components/section-meet-us.twig:5
 msgid "Nous rencontrer"
 msgstr ""
 
-#: templates/footer.twig:163
+#: templates/footer.twig:169
 msgid "ODDO BHF  Group © All rights reserved"
 msgstr ""
 
@@ -123,7 +124,7 @@ msgstr ""
 msgid "ODDO BHF (Suisse) SA"
 msgstr ""
 
-#: templates/pages/page-single-initiative.twig:49
+#: templates/pages/page-single-initiative.twig:53
 #: templates/pages/page-initiatives.twig:11
 msgid "ODDO BHF Initiatives"
 msgstr ""
@@ -132,15 +133,11 @@ msgstr ""
 msgid "Pays"
 msgstr ""
 
-#: templates/footer.twig:124
+#: templates/footer.twig:130
 msgid "Pour toute information"
 msgstr ""
 
-#: templates/header.twig:86
-msgid "Présentation"
-msgstr ""
-
-#: templates/pages/page-about.twig:137
+#: templates/pages/page-about.twig:132
 msgid "Rapport annuel"
 msgstr ""
 
@@ -150,7 +147,8 @@ msgstr ""
 
 #: templates/footer.twig:27 templates/components/version-selection.twig:52
 #: templates/pages/page-branch.twig:31
-#: templates/pages/page-implantations.twig:107
+#: templates/pages/page-implantations.twig:82
+#: templates/pages/page-single-branch.twig:31
 msgid "Suisse"
 msgstr ""
 
@@ -170,6 +168,6 @@ msgstr ""
 msgid "Trouvez-nous"
 msgstr ""
 
-#: page.php:362
+#: page.php:358
 msgid "à"
 msgstr ""
