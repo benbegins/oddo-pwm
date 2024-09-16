@@ -23,20 +23,21 @@
                 <div class="swiper">
                     <ul class="swiper-wrapper items-stretch">
                         {% for index, initiative in initiatives %}
+                            {% set initiative = initiative.initiative %}
                             {% if page_initiatives %}
-                                {% set link = function('add_query_arg', 'initiative-name', initiative.initiative.slug, page_initiatives) %}
+                                {% set link = function('add_query_arg', 'initiative-name', initiative.slug, page_initiatives) %}
                                 {% set initiative_url = function('esc_url', link) %}
                             {% endif %}
                             <li class="swiper-slide h-auto bg-armerie text-white" :class="{'lg:-mt-8 lg:-mb-8': slider && slider.slides[sliderIndex + 1] == $el}">
                                 <div class="img-container w-full aspect-paysage bg-black">
-                                    {{ function('get_the_post_thumbnail', initiative.initiative.id, 'medium_large') }}
+                                    {{ function('get_the_post_thumbnail', initiative.id, 'medium_large') }}
                                 </div>
                                 <div class="flex flex-col gap-4 p-8 pb-20 lg:p-10 lg:pb-20">
                                     <h3 class="font-baskerville text-md lg:text-lg">
-                                        {{ initiative.initiative.post_title }}
+                                        {{ initiative.hero_catch_phrase_part_1 }}
                                     </h3>                       
-                                    {% if initiative.initiative.custom.section_presentation_content %}
-                                        <div class="rich-text">{{ initiative.initiative.custom.section_presentation_content|excerpt(30) }}</div>
+                                    {% if initiative.section_presentation_content %}
+                                        <div>{{ initiative.section_presentation_content|excerpt(30) }}</div>
                                     {% endif %}
                                 </div>
                                 <a href="{{initiative_url}}" class="inline underline hover:no-underline absolute bottom-8 left-8 lg:left-10">{{ __('En savoir plus', 'bemy') }}</a>
