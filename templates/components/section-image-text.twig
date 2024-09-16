@@ -9,7 +9,13 @@
                     {{section.content}}
                 </div>
                 {% if section.button %}
-                    <a href="{{section.button.url}}" class="btn-primary borderonly btn-white mt-8">{{section.button.title}}</a>
+                    <a 
+                        href="{{section.button.url}}" 
+                        {{ section.button.target ? 'target="' ~ section.button.target ~ '"' : '' }} 
+                        class="btn-primary borderonly btn-white mt-8"
+                    >
+                        {{section.button.title}}
+                    </a>
                 {% endif %}
                 
             </div>
