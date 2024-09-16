@@ -11,6 +11,14 @@
 		&:hover {
 			@apply bg-rouge text-white;
 		}
+
+		&.btn-white {
+			@apply border-white text-white;
+
+			&:hover {
+				@apply bg-white text-black;
+			}
+		}
 	}
 }
 

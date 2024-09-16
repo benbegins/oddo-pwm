@@ -8,6 +8,10 @@
                 <div class="rich-text">
                     {{section.content}}
                 </div>
+                {% if section.button %}
+                    <a href="{{section.button.url}}" class="btn-primary borderonly btn-white mt-8">{{section.button.title}}</a>
+                {% endif %}
+                
             </div>
         </div>
         <div class="img-container w-full md:absolute md:h-full md:w-1/2 md:right-0 md:top-0">
