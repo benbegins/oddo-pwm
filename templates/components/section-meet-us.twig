@@ -1,0 +1,37 @@
+{% if options.section_meet_us %}
+{% set items = options.section_meet_us.items %}
+<section class="py-56 lg:py-80">
+    <div class="container">
+        <h2 class="section-title  mb-4 lg:mb-6">{{ __('Nous rencontrer', 'bemy') }}</h2>
+        <div class="grid gap-8 md:gap-6 md:justify-items-start md:grid-cols-3 md:mb-6 lg:gap-8">
+            {% for item in items %}
+
+                {% set fields = {
+                    'fr': {'country': item.country_fr, 'description': item.description_fr},
+                    'en': {'country': item.country_en, 'description': item.description_en},
+                    'de': {'country': item.country_de, 'description': item.description_de}
+                } %}
+                {% set default_fields = {'country': item.country_fr, 'description': item.description_fr} %}
+                {% set country = fields[language].country | default(default_fields.country) %}
+                {% set description = fields[language].description | default(default_fields.description) %}
+
+                <div class="flex flex-col gap-4 lg:gap-6">
+                    <div class="img-container w-full aspect-portrait bg-black">
+                        {{ function('wp_get_attachment_image', item.photo, "medium_large") }}
+                    </div>
+                    <h3 class="font-baskerville text-md lg:text-xl">{{country}}</h3>
+                    <p>{{description}}</p>
+                    <a href="" class="md:hidden">{{ __('Nous contacter', 'bemy') }}</a>
+                </div>
+
+            {% endfor %}
+        </div>
+        <div class="grid gap-8 md:justify-items-start md:gap-6 md:grid-cols-3 lg:gap-8">
+            {% for item in items %}
+                <a href="{{ page_contact }}" class="btn-secondary hidden md:inline-block">{{ __('Nous contacter', 'bemy') }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+

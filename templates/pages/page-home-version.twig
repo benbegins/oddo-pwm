@@ -106,36 +106,7 @@
     {% endif %}
 
 
-
-
-    {# Meet us #}
-    {% set meet_us = post.meta('section_meet_us').section_meet_us %}
-    {% if meet_us %}
-    <section class="py-56 lg:py-80">
-        <div class="container">
-            <h2 class="section-title  mb-4 lg:mb-6">{{ __('Nous rencontrer', 'bemy') }}</h2>
-            <div class="grid gap-8 md:gap-6 md:justify-items-start md:grid-cols-3 md:mb-6 lg:gap-8">
-                {% for country in meet_us.countries %}
-                    <div class="flex flex-col gap-4 lg:gap-6">
-                        <div class="img-container w-full aspect-portrait bg-black">
-                            {{ function('wp_get_attachment_image', country.photo, "medium_large") }}
-                        </div>
-                        <h3 class="font-baskerville text-md lg:text-xl">{{country.country}}</h3>
-                        <p>{{country.description}}</p>
-                        <a href="" class="md:hidden">{{ __('Nous contacter', 'bemy') }}</a>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="grid gap-8 md:justify-items-start md:gap-6 md:grid-cols-3 lg:gap-8">
-                {% for country in meet_us.countries %}
-                    <a href="{{ page_contact }}" class="btn-secondary hidden md:inline-block">{{ __('Nous contacter', 'bemy') }}</a>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
+    {# MEET US #}
+    {{ include('components/section-meet-us.twig') }}
     
-    
-    
-
 {% endblock %}

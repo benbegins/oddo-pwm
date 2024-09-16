@@ -282,28 +282,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "key": "field_66c6f0b5bf3a9",
-            "label": "Section meet us",
-            "name": "section_meet_us",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_66c6f039a2e45"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
         }
     ],
     "location": [
@@ -324,5 +302,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724317211
+    "modified": 1726486732
 }

@@ -42,6 +42,10 @@
     {% endif %}
 
 
+    {# MEET US #}
+    {{ include('components/section-meet-us.twig') }}
+
+
     {% set initiatives = other_initiatives %}
     {% if initiatives %}
         <section v-scope="Slider({slidesPerPage: 3})" class="py-56 lg:py-80">

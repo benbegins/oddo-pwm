@@ -33,6 +33,7 @@ class BemySite extends Timber\Site {
 	 */
 	public function add_to_context( $context ) {
 		$context['options'] = get_fields('options');
+		$context['language'] = pll_current_language();
 		return $context;
 	}
 
