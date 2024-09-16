@@ -11,6 +11,10 @@
                 {% if button.url %}
                     <a href="{{ button.url }}" target="_blank" class="btn-primary mt-4">{{ button.text }}</a>
                 {% endif %}
+                {% if contactButton and not button.url %}
+                    <a href="{{page_contact}}" class="btn-primary mt-4">{{ __('Nous contacter', 'bemy') }}</a>
+                {% endif %}
+                
             </div>
         </div>
     </section>

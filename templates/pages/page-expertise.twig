@@ -4,7 +4,7 @@
 
     {% include "components/hero.twig" with {hero: post.meta('hero')} %}
 
-    {% include "components/presentation.twig" %}
+    {% include "components/presentation.twig" with {contactButton: true} %}
 
     {% set sections = post.meta('sections') %}
     {% if sections %}
