@@ -411,8 +411,8 @@
         },
         {
             "key": "field_655cb18abdcc8",
-            "label": "Link list",
-            "name": "link_list",
+            "label": "Link list DE",
+            "name": "link_list_de",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -424,6 +424,28 @@
                 "id": ""
             },
             "default_value": "",
+            "allow_in_bindings": 1,
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_66fb86c293973",
+            "label": "Link list EN",
+            "name": "link_list_en",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 1,
             "tabs": "visual",
             "toolbar": "basic",
             "media_upload": 0,
@@ -735,5 +757,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1726482815
+    "modified": 1727760074
 }

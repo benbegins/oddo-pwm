@@ -31,12 +31,17 @@
                 </p>
             </div>
 
-            {% set currentLang = function('pll_current_language') %}
 
             {# Germany DE version #}
-            {% if version == 'germany' and currentLang == 'de' %}
+            {% if version == 'germany' and language == 'de' %}
                 <div class="rich-text">
-                    {{ options.link_list }}
+                    {{ options.link_list_de }}
+                </div>
+            
+            {# Germany EN version #}
+            {% elseif version == 'germany' and language == 'en' %}
+                <div class="rich-text">
+                    {{ options.link_list_en }}
                 </div>
 
             {# Switzerland Version #}
