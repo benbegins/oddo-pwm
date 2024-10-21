@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Bemy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-15 10:38+0000\n"
-"PO-Revision-Date: 2024-09-16 11:48+0000\n"
+"PO-Revision-Date: 2024-10-21 21:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.10; wp-6.6.1\n"
+"X-Loco-Version: 2.6.10; wp-6.6.2\n"
 "X-Domain: bemy"
 
 #: templates/header.twig:94
@@ -126,7 +126,7 @@ msgstr "ODDO BHF (Schweiz) AG"
 #: templates/pages/page-single-initiative.twig:53
 #: templates/pages/page-initiatives.twig:11
 msgid "ODDO BHF Initiatives"
-msgstr ""
+msgstr "ODDO BHF Initiativen"
 
 #: templates/components/version-selection.twig:32
 msgid "Pays"
