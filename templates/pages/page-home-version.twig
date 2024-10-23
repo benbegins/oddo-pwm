@@ -106,6 +106,13 @@
     {% endif %}
 
 
+    {# Section Image text #}
+    {% set section = post.meta('section_image_text') %}
+    {% if section.section_title %}
+        {{ include('components/section-image-text.twig') }}
+    {% endif %}    
+
+
     {# MEET US #}
     {{ include('components/section-meet-us.twig') }}
     
